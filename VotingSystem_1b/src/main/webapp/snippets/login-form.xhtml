@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<p:panelGrid id="Grid" columns="2" cellpadding="5">
+		Usuario: 
+		<h:panelGroup>
+			<p:inputText id="name" value="#{user.login}" required="true"
+				requiredMessage="Debe indicar un nombre de usuario" />
+			<p:message for="name" />
+		</h:panelGroup>
+  
+		Contraseña: 
+		<h:panelGroup>
+			<p:password id="password" value="#{user.password}" required="true"
+				requiredMessage="Debe indicar una contraseña" />
+			<p:message for="password" />
+		</h:panelGroup>
+		<p:commandButton value="Validar" action="#{user.verify}"
+			update="Grid" process="@form">
+		</p:commandButton>
+	</p:panelGrid>
+	<p:separator />
+</ui:composition>

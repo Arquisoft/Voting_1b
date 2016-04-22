@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/templates/template-general.xhtml">
+	<ui:define name="titulo">
+		VoterInput
+	</ui:define>
+	<ui:define name="cuerpo">
+	<b:modal id="amodal" title="Introduce datos de administracion" styleClass="modalPseudoClass">
+				
+				<b:row>
+				    <b:column >
+				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{cargaVotos.email}">
+				            <f:facet name="prepend">
+				              <b:icon name="user" />
+				            </f:facet>
+				        </b:inputText>
+				    </b:column>
+				    <b:column >
+				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{cargaVotos.password}">
+				            <f:facet name="prepend">
+				              <b:iconAwesome name="key" />
+				            </f:facet>
+	          			</b:inputSecret>
+				    </b:column>
+				</b:row>
+				<h:commandButton 
+			         		id="confirmar-voto"
+			         		value="Confirmar voto" 
+			         		actionListener="#{cargaVotos.loadVote()}"
+			         		look="primary" 
+			         		style="width:100%" 
+			         	/>
+		    <f:facet name="footer">
+		        <b:button value="Salir sin introducir votos" dismiss="modal" onclick="return false;"/>
+		    </f:facet>
+		</b:modal>
+
+		<b:container id="all" layout="fluid">
+
+			<b:row>
+					<b:message for="all" />
+				</b:row>
+		
+				<b:dataTable value="#{cargaVotos.getVotes(voter.configurationElection)}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
+				  <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Nombre" />
+				    </f:facet>
+				    <h:outputText value="#{option.elementoVotable.nombre}" />
+				  </h:column>
+				   
+				  <h:column>
+				  <f:facet name="header">
+				      <h:outputText value="Cantidad" />
+				    </f:facet>
+				     <b:inputText id="cantidad" type="number" value="#{option.cantidad}" required="true" label="Cantidad De votos"
+                 renderLabel="true" />
+    			<h:message for="cantidad" />
+				</h:column>
+				 
+				</b:dataTable>
+				 <b:button id="votar" class="miClaseParaSelenium" value="Cargar Votos" onclick="$('.modalPseudoClass').modal();return false;"/>
+					</b:container>
+	</ui:define>
+</ui:composition>

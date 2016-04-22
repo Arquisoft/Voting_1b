@@ -1,0 +1,8 @@
+
+Como usuario quiero poder ver los resultados de las elecciones de manera general.
+
+Como usuario quiero poder ver los resultados locales de cada colegio electoral.
+
+Como usuario quiero poder ver los resultados de un partido para cada colegio electoral.
+
+Como usuario quiero poder ver cuantas personas han votado en cada colegio.

@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+	<b:container>
+	
+		<b:row>
+			<p:outputLabel for="nombre" value="Nombre:" />
+       		<b:inputText id="nombre" value="#{configuration.name}" required="true" 
+       		requiredMessage="Debe indicar un nombre"/>
+			<p:message for="nombre" />
+        </b:row>
+        <b:row>
+			<p:outputLabel for="descripcion" value="Descripción:" />
+       		<b:inputTextarea rows="3" cols="25" id="descripcion" value="#{configuration.description}"></b:inputTextarea>
+			<p:message for="descripcion" />
+        </b:row>
+		
+		<b:row>
+			<p:outputLabel for="fechaInicioApp" value="Inicio periodo solicitud:" />
+       		<p:calendar id="fechaInicioApp" value="#{configuration.applicationStart}" pattern="MM/dd/yyyy HH:mm:ss"
+        		required="true" requiredMessage="Debe indicar una fecha de inicio" mindate ="#{configuration.hoy}"/>
+			<p:message for="fechaInicioApp" />
+        </b:row>
+        
+        <b:row>
+			<p:outputLabel for="fechaFinApp" value="Fin periodo solicitud:" />
+       		<p:calendar id="fechaFinApp" value="#{configuration.applicationEnd}" pattern="MM/dd/yyyy HH:mm:ss"
+       		 	required="true" requiredMessage="Debe indicar una fecha de fin" mindate ="#{configuration.hoy}"/>
+			<p:message for="fechaFinApp" />
+        </b:row>
+        
+       	<b:row>
+			<p:outputLabel for="fechaInicioVoto" value="Inicio votaciones:" />
+       		<p:calendar id="fechaInicioVoto" value="#{configuration.votationStart}" pattern="MM/dd/yyyy HH:mm:ss"
+        		required="true" requiredMessage="Debe indicar una fecha de inicio" mindate ="#{configuration.hoy}"/>
+			<p:message for="fechaInicioVoto" />
+        </b:row>
+        
+       	<b:row>
+			<p:outputLabel for="fechaFinVoto" value="Fin votaciones:" />
+       		<p:calendar id="fechaFinVoto" value="#{configuration.votationEnd}" pattern="MM/dd/yyyy HH:mm:ss"
+       		 	required="true" requiredMessage="Debe indicar una fecha de fin" mindate ="#{configuration.hoy}"/>
+			<p:message for="fechaFinVoto" />
+        </b:row>
+        
+        <b:row>
+       		<p:outputLabel for="elCheck" value="Voto múltiple: " />
+       		<b:selectBooleanCheckbox id="elCheck" value="#{configuration.multipleVoting}" />
+  		</b:row>
+
+  		<h:form>
+	  		<h:panelGroup>
+	  		<h:outputLabel for="opcionesVoto" value="Número de opciones de voto: " />
+	         <p:spinner id="opcionesVoto" value="#{configuration.numOptions}" min="2" max ="20">
+	                <p:ajax listener="#{configuration.opcionesVoto()}" update="inputs" />
+	         </p:spinner>
+	        </h:panelGroup>
+	        <h:panelGroup id="inputs">		
+				<ui:repeat value="#{configuration.votableOptions}" var="o" varStatus="loop">
+				<h:panelGroup>
+					<br/>
+					<p:separator/>
+					 <h:outputLabel for="nombreOpcion" value="Nombre: " />
+		   			 <b:inputText id="nombreOpcion" value="#{o.nombre}"></b:inputText>
+		   			  <h:outputLabel for="descripcionOpcion" value="Descripción: " />
+		   			 <b:inputTextarea rows="3" cols="25" id="descripcionOpcion" value="#{o.descripcion}"></b:inputTextarea> 
+		   		</h:panelGroup>	 
+				</ui:repeat>
+			</h:panelGroup>
+		</h:form>	
+
+		<p:commandButton value="Validar" id="botonValidar" actionListener="#{configuration.configura}"
+			update="@all" process="@form">
+		</p:commandButton>
+	</b:container>
+	<p:separator />
+	<p:messages for="laInfo" showDetail="true" autoUpdate="true"
+			closable="true" />
+</ui:composition>

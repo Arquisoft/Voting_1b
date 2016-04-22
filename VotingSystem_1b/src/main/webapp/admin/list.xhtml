@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+	<h:head>
+		<title>VotingSystem</title>
+	</h:head>
+	<h:body>
+				<b:container layout="fluid">
+
+		<h:form>
+				<b:dataTable value="#{voter.list}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
+				  <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Nombre" />
+				    </f:facet>
+				    <h:outputText value="#{option.name}" />
+				  </h:column>
+				   <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Descripcion" />
+				    </f:facet>
+				    <h:outputText value="#{option.description}" />
+				  </h:column>
+				  
+				   <h:column>
+				  <f:facet name="header">
+				      <h:outputText value="Gestionar" />
+				    </f:facet>
+				     <h:commandLink
+				     	id="gestion"
+				    	rendered="#{option.isOpenForVote()}"
+				    	action="gestion"
+				    	actionListener="#{voter.setConfigurationElection(option)}"
+				     	value="gestion" />
+				     
+				  </h:column>
+				 
+				</b:dataTable>
+		
+
+		<h:commandLink
+				     	id="nueva"
+				    	action="nueva"
+				     	value="Configurar nueva votacion" />
+				     	</h:form>
+					</b:container>
+
+
+	</h:body>
+</f:view>
+</html>

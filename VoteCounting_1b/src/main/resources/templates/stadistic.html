@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Resultados</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../static/css/bootstrap.css"
+	th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+
+
+<script type="text/javascript"
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!--Load the AJAX API-->
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" th:inline="javascript">
+	// Load the Visualization API and the corechart package.
+	google.charts.load('current', {
+		'packages' : [ 'corechart','table' ]
+	});
+	
+
+	// Set a callback to run when the Google Visualization API is loaded.
+	google.charts.setOnLoadCallback(drawChart);
+
+	// Set chart options
+	var options = {
+		'title' : '',
+		pieHole : 0.4,
+	};
+
+	// Callback that creates and populates a data table,
+	// instantiates the pie chart, passes in the data and
+	// draws it.
+	function drawChart() {
+
+		var pollingStations = /*[[${pollingStations}]]*/[];
+
+		pollingStations.forEach(function(v) {
+			$.ajax({
+				url : "stadistic_pollingstation_json/" + v,
+				dataType : "json",
+				success : function(json) {
+					// Create the data table.
+					var data = new google.visualization.DataTable(json);
+
+					// Instantiate and draw our chart, passing in some options.
+					var chart = new google.visualization.PieChart(document
+							.getElementById('chart_div_' + v));
+					chart.draw(data, options);
+				}
+			});
+		});
+
+		$.ajax({
+			url : "stadistic_json",
+			dataType : "json",
+			success : function(json) {
+				// Create the data table.
+				var data = new google.visualization.DataTable(json);
+
+				// Instantiate and draw our chart, passing in some options.
+				var chart = new google.visualization.PieChart(document
+						.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+		});
+
+		$.ajax({
+			url : "stadistic_col",
+			dataType : "json",
+			success : function(json) {
+				// Create the data table.
+				var data = new google.visualization.DataTable(json);
+
+				var option = {
+					'title' : 'Colegio '
+							+ document.getElementById('selected_text').value,
+					'width' : 900,
+					'height' : 500
+				};
+				// Instantiate and draw our chart, passing in some options.
+				var chart = new google.visualization.PieChart(document
+						.getElementById('chart'));
+				chart.draw(data, option);
+			}
+		});
+
+		$.ajax({
+			url : "stadistic_tab",
+			dataType : "json",
+			success : function(json) {
+				// Create the data table.
+				var data = new google.visualization.DataTable(json);
+				// Instantiate and draw our chart, passing in some options.
+				var chart = new google.visualization.Table(document
+						.getElementById('chartTabla'));
+				chart.draw(data,{showRowNumber: true, width: '45%', height: '45%'});
+			}
+		});
+		
+		
+
+	}
+
+</script>
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+	<h1 align="center">Resultado de las Votaciones</h1>
+	<br />
+	<br />
+	<div>
+		<!--Tata de resultado total-->
+
+		<div style="float: left; width: 50%;">
+			<h2>Resultado de las elecciones</h2>
+			<div id="chart_div" style="width: 900px; height: 500px;"></div>
+		</div>
+
+
+		<div th:each="pollingStation: ${pollingStations}"
+			style="float: right; width: 50%;">
+
+			<h2>Numero de votos por colegio</h2>
+			<div th:id="${'chart_div_' + pollingStation}"
+				style="width: 900px; height: 500px;"></div>
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<!--  
+	Prueba del segundo modo de muestra de datos, sin gráficos
+	<div th:each="votes: ${votesPartyPStation}">
+    	<h2 th:text="'Colegio electoral:'+ ${votes[0]}" ></h2>
+    	<h2 th:text="'Partido:'+ ${votes[1]}" ></h2>
+      <h2 th:text="'Votos:'+ ${votes[2]}" ></h2>
+		<br/>
+		<div th:id="${'chart_div_' + votes}"></div>
+    </div>
+    -->
+
+	<div style="float: left; width: 50%;">
+		<h2>Votaciones por colegio electoral</h2>
+		Selecciona el colegio electoral
+
+		<form action="#" th:action="@{/stadistic}" th:object="${colegio}"
+			method="post">
+			<select name="Colegios" value="2500"
+				onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+				<div th:each="c: ${colegios}">
+					<h2 th:text="'Colegio electoral:'+ ${c[0]}"></h2>
+					<option th:value="${c[0]}"><p th:text="'' + ${c[0]}" />
+					</option>
+
+				</div>
+			</select>
+			<p>
+				<input type="submit" name="buscar" value="Buscar" />
+			</p>
+			<p>
+				<input type="hidden" name="selected_text" id="selected_text"
+					value="" th:field="*{pollingStationCode}" />
+			</p>
+		</form>
+		<div id="chart" style="width: 900px; height: 500px;"></div>
+	</div>
+
+	<div style="float: right; width: 50%;">
+
+		<h2>Datos por partido politico</h2>
+		Selecciona el partido
+		<form action="#" th:action="@{/stadistic_party}"
+			th:object="${partido}" method="post">
+			<select name="Partidos"
+				onchange="document.getElementById('selected_text2').value=this.options[this.selectedIndex].text">
+				<div th:each="c: ${partidos}">
+
+					<option th:value="${c}"><p th:text="'' + ${c}" />
+					</option>
+
+				</div>
+			</select>
+			<p>
+				<input type="submit" name="buscar2" value="Buscar" />
+			</p>
+			<p>
+				<input type="hidden" name="selected_text2" id="selected_text2"
+					value="" th:field="*{party}" />
+			</p>
+		</form>
+		
+	</div>
+	<br/>
+	<br/>
+	<br/>
+	<div id="chartTabla"></div>
+	<?php
+
+if(isset($_POST['buscar']))
+{
+
+    $makerValue = $_POST['Colegios']; // make value
+
+    $maker = mysql_real_escape_string($_POST['selected_text']); // get the selected text
+    echo $maker;
+}
+ ?>
+
+	<?php
+
+if(isset($_POST['buscar2']))
+{
+
+    $makerValue = $_POST['Partidos']; // make value
+
+    $maker = mysql_real_escape_string($_POST['selected_text2']); // get the selected text
+    echo $maker;
+}
+ ?>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Informacion Votante</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<h1>Información del Votante</h1>
+
+
+    <p th:text="'Email: ' + ${userinfo.login}" />
+    <p th:text="'Contraseña: ' + ${userinfo.password}" />
+    <p th:text="'Codigo de colegio electoral: ' + ${userinfo.pollingStationCode}" />
+    <a href="/">Atras</a>
+    
+	<a th:href="@{/cambiar-clave}">Cambiar clave</a>
+
+</body>
+</html>

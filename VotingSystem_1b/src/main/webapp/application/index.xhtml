@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/templates/template-general.xhtml">
+	<ui:define name="titulo">
+		VoteApplication para #{voter.configurationElection.name}
+	</ui:define>
+	<ui:define name="cuerpo">
+			<b:container layout="fluid" id="all">
+				<b:row>
+					<b:message for="all" />
+				</b:row>
+				<b:row>
+				    <b:column span="4" offset="4">
+				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{voteApplication.email}">
+				            <f:facet name="prepend">
+				              <b:icon name="user" />
+				            </f:facet>
+				        </b:inputText>
+				    </b:column>
+				    <b:column span="4" offset="4">
+				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{voteApplication.password}">
+				            <f:facet name="prepend">
+				              <b:iconAwesome name="key" />
+				            </f:facet>
+	          			</b:inputSecret>
+				    </b:column>
+				</b:row>
+				<b:row>
+			        <b:column span="4" offset="4">
+			         	<h:commandButton 
+			         		id="solicitar"
+			         		value="Solicitar voto telematico" 
+			         		actionListener="#{voteApplication.apply(voter.configurationElection)}"
+			         		look="primary" 
+			         		style="width:100%" 
+			         	/>
+			        </b:column>
+			    </b:row>
+			</b:container>
+	</ui:define>
+</ui:composition>

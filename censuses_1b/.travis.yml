@@ -1,0 +1,19 @@
+language: java
+jdk:
+- oraclejdk8
+notifications:
+  email:
+    recipients:
+      - uo237040@uniovi.es
+      - uo237085@uniovi.es
+      - uo235241@uniovi.es
+    on_success: never
+    on_failure: always
+before_install:
+  - pip install --user codecov
+after_success:
+  - codecov
+services:
+  - mysql
+before_script:
+  - mysql -e 'create database censuses_1b;'

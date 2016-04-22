@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Informacion Votante</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1>Sistema de informacion de Votantes</h1>
+
+    <form action="#" th:action="@{/}" th:object="${userinfo}" method="post">
+    	<p>Email: <input type="text" th:field="*{login}" /></p>
+        <p>Contraseña: <input type="password" th:field="*{password}" /></p>
+        <p><input type="submit" value="Entrar" /> <input type="reset" value="Reset" /></p>
+    </form>
+
+</body>
+</html>

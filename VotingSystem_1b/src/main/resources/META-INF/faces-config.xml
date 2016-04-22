@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+
+	<managed-bean>
+		<managed-bean-name>voteApplication</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.application.beans.BeanApplication
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>voter</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.beans.BeanVoter
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+
+	<managed-bean>
+		<managed-bean-name>configuration</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.configuration.beans.BeanConfiguration
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>cargaVotos</managed-bean-name>
+		<managed-bean-class>
+			 es.uniovi.asw.voter.input.BeanLoadVotes
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>options</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.vote.beans.BeanOptions
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>validator</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.validator.beans.BeanValidator
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver
+		</el-resolver>
+	</application>
+
+	<lifecycle>
+		<phase-listener>org.springframework.web.jsf.DelegatingPhaseListenerMulticaster
+		</phase-listener>
+	</lifecycle>
+	
+	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>apply</from-outcome>
+			<to-view-id>/application/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>vote</from-outcome>
+			<to-view-id>/vote/index.xhtml</to-view-id>
+		</navigation-case>
+		
+		
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/admin/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/admin/list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/admin/list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>gestion</from-outcome>
+			<to-view-id>/admin/LoadVotos.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>nueva</from-outcome>
+			<to-view-id>/admin/configuration.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+</faces-config>
