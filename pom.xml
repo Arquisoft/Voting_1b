@@ -9,20 +9,19 @@
 	<name>Voting_1b</name>
 	<version>0.0.1</version>
 	
-	<modules>
-        <module>censuses_1b</module>
-    	<module>voters_1b</module>
-    	<module>VotingSystem_1b</module>
-    	<module>VoteCounting_1b</module>
-    </modules>
-
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.2.RELEASE</version>
 	</parent>
 
+	<modules>
+        <module>censuses_1b</module>
+    	<module>voters_1b</module>
+    	<module>VotingSystem_1b</module>
+    	<module>VoteCounting_1b</module>
+    </modules>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
