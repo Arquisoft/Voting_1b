@@ -8,3 +8,7 @@ addons:
     username: "SantiMA10"
     access_key:
       secure: "aKCYk6XLilBapfvpXqhAWgVPHSRocUGk2hrBDOaX2UGhE9Arm6CsRTDCP/80aOBoiouxtk1KSzVSljRAW3VD/SzqKf8D9O12eH8X6G5sw8R8lDfdI59bxS2mFYe2fgosZjQTLTFFQ5lvwwJECVdJP7NrTk2K7lJlpxwUET/JyDbF9tjS4fSqj9EdCt+KrKyxAKoACaQvblDF7/rqbxsAS47qHfMcG+yGTy3rUNL7vE00nrp1vgycWDDNp+DwnCOrFKRIUTW/vNVALKQlkQfAulI8lXgkAUksuyArrATjFMrnC5iRRE/T/27fK1+fdkKhaIakorVo5Y+nSH9kzZsRZoyIU83N/VpNo+SzrHSkiwhljYz1mrci0coRLbeC5h/VjK7X/y0HIOnWetR4elN180TXTzxF50WtLYX61mJ+Q0FyiF0+fkLvu3+lhoA0UY4znbLcpehapauCS5F5SZXYehOccu+L5mSwy+KEUgYRlxh9rRlT+nlUQP4sTd5gQ9p9CZ4xEpblpP3H3prIixDGnvQMOHB1UhowyV3sn78VGCDHQP5GcMKynSOkmThAZ/9k4sjwaG/zK/rANtHc+Yh5zBCP/QhoihtaoyeOTzGc50FgYYGSgsbeb7ZFJOk0zvLZah5sKxx3RA+LP7EkfTbtq6BHcw+S1OzjwI2niolmf/c="
+services:
+  - mysql
+before_script:
+  - mysql -e 'create database censuses_1b;'
