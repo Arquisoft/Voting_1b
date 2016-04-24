@@ -5,14 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>es.uniovi.asw</groupId>
-    <artifactId>voters1b</artifactId>
-	<name>voters1b</name>
+    <artifactId>voteCounting1b</artifactId>
+	<name>voteCounting1b</name>
     <version>0.0.1</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.3.2.RELEASE</version>
+        <relativePath></relativePath>
     </parent>
 
     <dependencies>
