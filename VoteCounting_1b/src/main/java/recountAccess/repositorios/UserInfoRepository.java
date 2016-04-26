@@ -1,9 +1,9 @@
-package hello.repositorios;
+package recountAccess.repositorios;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-import hello.model.UserInfo;
+import recountAccess.model.UserInfo;
 
 public interface UserInfoRepository extends CrudRepository<UserInfo, Long>{
 	

@@ -1,4 +1,4 @@
-package hello;
+package recountAccess;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import hello.model.UserInfo;
-import hello.repositorios.UserInfoRepository;
+import recountAccess.model.UserInfo;
+import recountAccess.repositorios.UserInfoRepository;
 
 //controlador para la parte por Consola
 

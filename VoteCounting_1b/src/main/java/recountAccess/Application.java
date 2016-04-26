@@ -1,4 +1,4 @@
-package hello;
+package recountAccess;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,10 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import hello.model.UserInfo;
-import hello.model.Vote;
-import hello.repositorios.UserInfoRepository;
-import hello.repositorios.VoteRepository;
+import recountAccess.model.UserInfo;
+import recountAccess.model.Vote;
+import recountAccess.repositorios.UserInfoRepository;
+import recountAccess.repositorios.VoteRepository;
 
 @SpringBootApplication
 public class Application {

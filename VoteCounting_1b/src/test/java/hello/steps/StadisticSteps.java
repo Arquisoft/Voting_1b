@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import hello.Application;
+import recountAccess.Application;
 
 
 @ContextConfiguration(classes=Application.class, loader=SpringApplicationContextLoader.class)

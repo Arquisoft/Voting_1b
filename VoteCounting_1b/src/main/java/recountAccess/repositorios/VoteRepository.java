@@ -1,11 +1,11 @@
-package hello.repositorios;
+package recountAccess.repositorios;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import hello.model.Vote;
+import recountAccess.model.Vote;
 
 public interface VoteRepository extends CrudRepository<Vote, Long> {
 

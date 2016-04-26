@@ -24,8 +24,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
-import hello.model.UserInfo;
-import hello.repositorios.UserInfoRepository;
+import recountAccess.Application;
+import recountAccess.model.UserInfo;
+import recountAccess.repositorios.UserInfoRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)

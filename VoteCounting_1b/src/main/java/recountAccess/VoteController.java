@@ -1,4 +1,4 @@
-package hello;
+package recountAccess;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import hello.model.UserInfo;
-import hello.model.Vote;
-import hello.repositorios.VoteRepository;
+import recountAccess.model.UserInfo;
+import recountAccess.model.Vote;
+import recountAccess.repositorios.VoteRepository;
 
 @Controller
 public class VoteController {
