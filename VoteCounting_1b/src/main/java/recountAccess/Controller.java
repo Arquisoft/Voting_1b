@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import recountAccess.model.UserInfo;
+import recountAccess.model.User;
 import recountAccess.repositorios.UserInfoRepository;
+import recountAccess.persistence.*;
 
 //controlador para la parte por Consola
 
@@ -19,17 +20,18 @@ import recountAccess.repositorios.UserInfoRepository;
 public class Controller {
 	
 	
-	@Autowired
-    UserInfoRepository repository;
+	//@Autowired
+    //UserInfoRepository repository;
+	UserJdbcDAO repository= new SimplePersistenceFactory.createUserDao();
     
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public UserInfo update(@RequestBody UserInfo car) {	
+    public User update(@RequestBody User car) {	
     	Integer pollingStationCode;
         if (car != null) {
         	try{
-        	List<UserInfo> users=repository.findByLogin(car.getLogin());
+        	List<User> users=repository.findByLogin(car.getLogin());
         	if (users!=null){
-        		UserInfo usuario=users.get(0);
+        		User usuario=users.get(0);
         		if(usuario.getPassword().equals(car.getPassword())){
         			pollingStationCode=usuario.getPollingStationCode();
         			car=usuario;

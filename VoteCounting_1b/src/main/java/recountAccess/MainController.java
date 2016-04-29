@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import recountAccess.model.UserInfo;
+import recountAccess.model.User;
 import recountAccess.repositorios.UserInfoRepository;
+import recountAccess.persistence.*;
 
 import java.util.List;
 
@@ -22,24 +23,26 @@ import org.springframework.validation.FieldError;
 @Controller
 public class MainController {
 
-	UserInfo user;
-	@Autowired
-    UserInfoRepository repository;
+	User user;
+	//@Autowired
+	//UserInfoRepository repository;
+	
+	UserJdbcDAO users = new SimplePersistenceFactory.createUserDao();
  
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String greetingForm(Model model) {
-    	//user=new UserInfo("bla","000", "bla", "24252627W", 2535);
-        model.addAttribute("userinfo", new UserInfo());
+    	//user=new User("bla","000", "bla", "24252627W", 2535);
+        model.addAttribute("userinfo", new User());
         return "greeting";
     }
     
     @RequestMapping(value="/", method=RequestMethod.POST)
-    public String greetingSubmit(@ModelAttribute UserInfo greeting, Model model, HttpSession sesion) {
+    public String greetingSubmit(@ModelAttribute User greeting, Model model, HttpSession sesion) {
     	model.addAttribute("userinfo", greeting);
     	try{
-    		List<UserInfo> users=repository.findByLogin(greeting.getLogin());
+    		List<User> users=users.findByLogin(greeting.getLogin());
         	if (users!=null){
-        		UserInfo usuario=users.get(0);
+        		User usuario=users.get(0);
         		if(usuario.getPassword().equals(greeting.getPassword())){
         			sesion.setAttribute("login", greeting.getLogin());
         			return "result";
@@ -66,12 +69,12 @@ public class MainController {
     	}
     	else {
     		String login = (String)sesion.getAttribute("login");
-    		List<UserInfo> users = repository.findByLogin(login);
+    		List<User> users = repository.findByLogin(login);
     		if (users.isEmpty()) {
     			throw new RuntimeException();
     		}
     		else {
-    			UserInfo userInfo = users.get(0);
+    			User userInfo = users.get(0);
     			if (userInfo.getPassword().equals(cambiarClave.getClaveAnterior())) {
         			userInfo.changePassword(cambiarClave.getClaveNueva());
         			repository.save(userInfo);

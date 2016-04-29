@@ -1,4 +1,4 @@
-package recountAccess;
+﻿package recountAccess;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import recountAccess.model.UserInfo;
+import recountAccess.model.User;
 import recountAccess.model.Vote;
 import recountAccess.repositorios.UserInfoRepository;
 import recountAccess.repositorios.VoteRepository;
@@ -26,11 +26,11 @@ public class Application {
 	public CommandLineRunner loaduser(UserInfoRepository repository) {
 		return (args) -> {
 			// save a couple of customers
-			repository.save(new UserInfo("bla","000", "bla", "24252627W", 2535));
-			repository.save(new UserInfo("pablo@gmail.com","000", "Pablo", "24252647W", 2535));
-			repository.save(new UserInfo("juan@gmail.com","000", "Juan", "24252627X", 2535));
-			repository.save(new UserInfo("maria@gmail.com","000", "María", "24252627Y", 2500));
-			repository.save(new UserInfo("aida@gmail.com","000", "Aida", "24252627Z", 2500));
+			repository.save(new User("bla","000", "bla", "24252627W", 2535));
+			repository.save(new User("pablo@gmail.com","000", "Pablo", "24252647W", 2535));
+			repository.save(new User("juan@gmail.com","000", "Juan", "24252627X", 2535));
+			repository.save(new User("maria@gmail.com","000", "María", "24252627Y", 2500));
+			repository.save(new User("aida@gmail.com","000", "Aida", "24252627Z", 2500));
 			
 			
 			
