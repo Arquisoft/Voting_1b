@@ -11,7 +11,7 @@ import es.uniovi.asw.logica.Votante;
 import es.uniovi.asw.reports.ReportWriter;
 
 /**
- * Clase para interactuar con la base de datos
+ * Clase para interactuar con la base de datosaaa
  *
  */
 public class DBUpdate {
