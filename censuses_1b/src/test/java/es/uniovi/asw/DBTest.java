@@ -24,7 +24,7 @@ public class DBTest {
 
 	@Test
 	public void testInsertarVotante() {
-		Votante votante = new Votante("Nombre", "nombre@mail.com", "12345678X", "qwerty");
+		Votante votante = new Votante("Nombre", "nombre@mail.com", "12345678X", "1");
 		db.insert(votante);
 		Votante votanteBD = db.select(votante.getNif());
 		assertEquals(votante.getNombre(), votanteBD.getNombre());
@@ -35,9 +35,9 @@ public class DBTest {
 	
 	@Test
 	public void testInsertarVariosVotantes() {
-		Votante votante1 = new Votante("Nombre1", "nombre1@mail.com", "00000000P", "codigo1");
-		Votante votante2 = new Votante("Nombre2", "nombre2@mail.com", "99999999C", "codigo2");
-		Votante votante3 = new Votante("Nombre3", "nombre3@mail.com", "55555555F", "codigo3");
+		Votante votante1 = new Votante("Nombre1", "nombre1@mail.com", "00000000P", "1");
+		Votante votante2 = new Votante("Nombre2", "nombre2@mail.com", "99999999C", "1");
+		Votante votante3 = new Votante("Nombre3", "nombre3@mail.com", "55555555F", "1");
 		db.insert(votante1);
 		db.insert(votante2);
 		db.insert(votante3);
@@ -55,8 +55,8 @@ public class DBTest {
 	
 	@Test
 	public void testInsertarDosVotantesConMismoNif() {
-		Votante votante = new Votante("Nombre", "nombre@mail.com", "12345678X", "codigo1");
-		Votante votante2 = new Votante("Nombre2", "nombre2@mail.com", "12345678X", "codigo2");
+		Votante votante = new Votante("Nombre", "nombre@mail.com", "12345678X", "1");
+		Votante votante2 = new Votante("Nombre2", "nombre2@mail.com", "12345678X", "1");
 		assertEquals(0, db.count());
 		db.insert(votante);
 		assertFalse(new File("report.log").exists());
@@ -72,8 +72,8 @@ public class DBTest {
 	
 	@Test
 	public void testInsertarDosVotantesConMismoMail() {
-		Votante votante = new Votante("Nombre", "nombre@mail.com", "12345678X", "codigo1");
-		Votante votante2 = new Votante("Nombre2", "nombre@mail.com", "00000000P", "codigo2");
+		Votante votante = new Votante("Nombre", "nombre@mail.com", "12345678X", "1");
+		Votante votante2 = new Votante("Nombre2", "nombre@mail.com", "00000000P", "1");
 		assertEquals(0, db.count());
 		db.insert(votante);
 		assertFalse(new File("report.log").exists());

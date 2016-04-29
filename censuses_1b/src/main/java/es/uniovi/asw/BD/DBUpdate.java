@@ -16,10 +16,10 @@ import es.uniovi.asw.reports.ReportWriter;
  */
 public class DBUpdate {
 
-	private static String DRIVER_HSQLDB = "org.hsqldb.jdbcDriver";
-	private static String URL_HSQLDB = "jdbc:hsqldb:hsql://localhost";
-	private static String USER_HSQLDB = "sa";
-	private static String PASS_HSQLDB = "";
+	private static String DRIVER_HSQLDB = "org.postgresql.Driver";
+	private static String URL_HSQLDB = "jdbc:postgresql://ec2-54-235-85-65.compute-1.amazonaws.com:5432/ddhkb9n4tp9rvn?sslmode=require";
+	private static String USER_HSQLDB = "fdrqudzzijmogt";
+	private static String PASS_HSQLDB = "65bvhXlALUam3hYiighVQw4NQ-";
 
 	private static String DRIVER_MYSQL = "com.mysql.jdbc.Driver";
 	private static String URL_MYSQL = "jdbc:mysql://127.0.0.1/censuses_1b";
@@ -78,7 +78,7 @@ public class DBUpdate {
 			insercion.setString(1, v.getNombre());
 			insercion.setString(2,v.getMail() );
 			insercion.setString(3,v.getNif());
-			insercion.setString(4, v.getCodigoColegio());
+			insercion.setLong(4, Long.valueOf(v.getCodigoColegio()));
 			insercion.setString(5, v.getContrasena());
 			insercion.setBoolean(6, false);
 			insercion.executeUpdate();			
