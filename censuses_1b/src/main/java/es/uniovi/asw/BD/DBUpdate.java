@@ -15,11 +15,20 @@ import es.uniovi.asw.reports.ReportWriter;
  *
  */
 public class DBUpdate {
-
+	
 	private static String DRIVER_HSQLDB = "org.hsqldb.jdbcDriver";
 	private static String URL_HSQLDB = "jdbc:hsqldb:hsql://localhost";
 	private static String USER_HSQLDB = "sa";
 	private static String PASS_HSQLDB = "";
+
+	@SuppressWarnings("unused")
+	private static String DRIVER_POSTGRESQL = "org.postgresql.Driver";
+	@SuppressWarnings("unused")
+	private static String URL_POSTGRESQL = "jdbc:postgresql://ec2-54-235-85-65.compute-1.amazonaws.com:5432/ddhkb9n4tp9rvn?sslmode=require";
+	@SuppressWarnings("unused")
+	private static String USER_POSTGRESQL = "fdrqudzzijmogt";
+	@SuppressWarnings("unused")
+	private static String PASS_POSTGRESQL = "65bvhXlALUam3hYiighVQw4NQ-";
 
 	private static String DRIVER_MYSQL = "com.mysql.jdbc.Driver";
 	private static String URL_MYSQL = "jdbc:mysql://127.0.0.1/censuses_1b";
@@ -52,7 +61,7 @@ public class DBUpdate {
 			if(driver.equals(DRIVER_MYSQL)){
 				con.prepareStatement("CREATE TABLE IF NOT EXISTS USUARIOS ( id INT AUTO_INCREMENT PRIMARY KEY,"
 						+ " name VARCHAR(30), ename  VARCHAR(50), nif varchar(10), codigo_colegio_id"
-						+ " varchar(20), pass varchar(256), admin boolean, UNIQUE(nif), UNIQUE(email) );").executeUpdate();
+						+ " BIGINT, pass varchar(256), admin boolean, UNIQUE(nif), UNIQUE(ename) );").executeUpdate();
 				//TODO  cambiar varchar(20) por Long
 			}
 		} catch (SQLException e) {
@@ -78,7 +87,7 @@ public class DBUpdate {
 			insercion.setString(1, v.getNombre());
 			insercion.setString(2,v.getMail() );
 			insercion.setString(3,v.getNif());
-			insercion.setString(4, v.getCodigoColegio());
+			insercion.setLong(4, Long.valueOf(v.getCodigoColegio()));
 			insercion.setString(5, v.getContrasena());
 			insercion.setBoolean(6, false);
 			insercion.executeUpdate();			
@@ -190,8 +199,8 @@ public class DBUpdate {
 			ps.setString(1, nif);
 			rs = ps.executeQuery();
 			if (rs.next())
-				return new Votante (rs.getNString("NAME"), rs.getNString("EMAIL"), 
-						rs.getNString("NIF"), rs.getNString("CENSUSESINFO"));
+				return new Votante (rs.getNString("NAME"), rs.getNString("ENAME"), 
+						rs.getNString("NIF"), rs.getLong("codigo_colegio_id")+"");
 			else
 				return null;
 		} catch (SQLException e) {

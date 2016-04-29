@@ -66,21 +66,21 @@ public class ReadCensusExcelTest {
 		assertTrue(votante1.getNombre().equals("Pepe"));
 		assertTrue(votante1.getMail().equals("pepe@yomolomucho.es"));
 		assertTrue(votante1.getNif().equals("65432123A"));
-		assertTrue(votante1.getCodigoColegio().equals("32.0"));
+		assertTrue(votante1.getCodigoColegio().equals("32"));
 		
 		//Comprobamos los datos del votante 2
 		Votante votante2 = votantes.get(1);
 		assertTrue(votante2.getNombre().equals("Juan"));
 		assertTrue(votante2.getMail().equals("juan@gmail.com"));
 		assertTrue(votante2.getNif().equals("75643234W"));
-		assertTrue(votante2.getCodigoColegio().equals("43.0"));
+		assertTrue(votante2.getCodigoColegio().equals("43"));
 
 		//Comprobamos los datos del votante 3
 		Votante votante3 = votantes.get(2);
 		assertTrue(votante3.getNombre().equals("Sergio"));
 		assertTrue(votante3.getMail().equals("sergio@yomolomucho.es"));
 		assertTrue(votante3.getNif().equals("12321543P"));
-		assertTrue(votante3.getCodigoColegio().equals("54.0"));
+		assertTrue(votante3.getCodigoColegio().equals("54"));
 	}
 	
 	@Test
@@ -93,21 +93,21 @@ public class ReadCensusExcelTest {
 		assertTrue(votante1.getNombre().equals("Pepe"));
 		assertTrue(votante1.getMail().equals("pepe@yomolomucho.es"));
 		assertTrue(votante1.getNif().equals("65432123A"));
-		assertTrue(votante1.getCodigoColegio().equals("32.0"));
+		assertTrue(votante1.getCodigoColegio().equals("32"));
 
 		//Comprobamos los datos del votante 2
 		Votante votante2 = votantes.get(1);
 		assertTrue(votante2.getNombre().equals("Juan"));
 		assertTrue(votante2.getMail().equals("juan@gmail.com"));
 		assertTrue(votante2.getNif().equals("75643234W"));
-		assertTrue(votante2.getCodigoColegio().equals("43.0"));
+		assertTrue(votante2.getCodigoColegio().equals("43"));
 
 		//Comprobamos los datos del votante 3
 		Votante votante3 = votantes.get(2);
 		assertTrue(votante3.getNombre().equals("Sergio"));
 		assertTrue(votante3.getMail().equals("sergio@yomolomucho.es"));
 		assertTrue(votante3.getNif().equals("12321543P"));
-		assertTrue(votante3.getCodigoColegio().equals("54.0"));
+		assertTrue(votante3.getCodigoColegio().equals("54"));
 	}
 	
 	@Test
@@ -127,6 +127,10 @@ public class ReadCensusExcelTest {
 		
 		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_incorrecto.xlsx");
 		List<Votante> votantes = readCensus.loadCenso(); 
+		
+		for(Votante votante : votantes){
+			System.out.println(votante.getNombre());
+		}
 		
 		assertEquals(votantes.size(), 0);
 		

@@ -62,7 +62,7 @@ public class ReadCensusExcel extends AbstractReadCensus {
 					Votante v = new Votante(datosVotante.get(0),
 							datosVotante.get(1),
 							datosVotante.get(2),
-							datosVotante.get(3));
+							datosVotante.get(3) != "" ? Double.valueOf(datosVotante.get(3)).longValue() +"" : "");
 										
 					votantes.add(v);
 				}

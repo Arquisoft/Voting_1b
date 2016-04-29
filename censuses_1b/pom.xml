@@ -45,6 +45,13 @@
 			<version>0.7.5.201505241946</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4.1208</version>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>org.assertj</groupId>
