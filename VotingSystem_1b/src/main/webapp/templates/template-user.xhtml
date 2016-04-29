@@ -8,16 +8,22 @@
 	xmlns:p="http://primefaces.org/ui">
 <f:view>
 <h:head>
-	<title>Admin VotingSystem</title>
+	<title>VotingSystem</title>
 </h:head>
+		<h:body>
 
 	<h:form id="form-cabecera">
-		
+		<b:navBar brand="VotingSystem" brandHref="#">
+	     <b:navbarLinks>
+	         <b:navLink value="Lista de votaciones" href="index.xhtml"></b:navLink>
+	         
+	     </b:navbarLinks>
+	 </b:navBar>
+
 				<center>
-					<ui:insert name="titulo">Título</ui:insert>
+					<ui:insert name="titulo"></ui:insert>
 				</center>
 	</h:form>
-	<h:body>
 		<h:form id="form-cuerpo">
 			<ui:insert name="cuerpo">Cuerpo</ui:insert>
 		</h:form>

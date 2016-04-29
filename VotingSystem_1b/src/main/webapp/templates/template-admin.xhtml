@@ -12,9 +12,15 @@
 </h:head>
 
 	<h:form id="form-cabecera">
+	<b:navBar brand="Admin VotingSystem" brandHref="#">
+	     <b:navbarLinks>
+	         <b:navLink value="Lista de votaciones" href="list.xhtml"></b:navLink>
+	         
+	     </b:navbarLinks>
+	 </b:navBar>
 		
 				<center>
-					<ui:insert name="titulo">Título</ui:insert>
+					<ui:insert name="titulo"></ui:insert>
 				</center>
 	</h:form>
 	<h:body>

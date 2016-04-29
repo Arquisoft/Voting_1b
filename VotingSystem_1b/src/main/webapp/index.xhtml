@@ -1,20 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:b="http://bootsfaces.net/ui"
-	xmlns:p="http://primefaces.org/ui">
-
-<f:view>
-	<h:head>
-		<title>VotingSystem</title>
-	</h:head>
-	<h:body>
+	template="/templates/template-user.xhtml">
+	<ui:define name="cuerpo">
 				<b:container layout="fluid">
 
-		<h:form>
 				<b:dataTable value="#{voter.list}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
 				  <h:column>
 				    <f:facet name="header">
@@ -54,10 +48,7 @@
 				  </h:column>
 				 
 				</b:dataTable>
-		</h:form>
 					</b:container>
 
-
-	</h:body>
-</f:view>
-</html>
+</ui:define>
+</ui:composition>
