@@ -52,7 +52,7 @@ public class DBUpdate {
 			if(driver.equals(DRIVER_MYSQL)){
 				con.prepareStatement("CREATE TABLE IF NOT EXISTS USUARIOS ( id INT AUTO_INCREMENT PRIMARY KEY,"
 						+ " name VARCHAR(30), ename  VARCHAR(50), nif varchar(10), codigo_colegio_id"
-						+ " SIGNED BIGINT, pass varchar(256), admin boolean, UNIQUE(nif), UNIQUE(email) );").executeUpdate();
+						+ " BIGINT, pass varchar(256), admin boolean, UNIQUE(nif), UNIQUE(email) );").executeUpdate();
 				//TODO  cambiar varchar(20) por Long
 			}
 		} catch (SQLException e) {
@@ -190,8 +190,8 @@ public class DBUpdate {
 			ps.setString(1, nif);
 			rs = ps.executeQuery();
 			if (rs.next())
-				return new Votante (rs.getNString("NAME"), rs.getNString("EMAIL"), 
-						rs.getNString("NIF"), rs.getNString("CENSUSESINFO"));
+				return new Votante (rs.getNString("NAME"), rs.getNString("ENAME"), 
+						rs.getNString("NIF"), rs.getLong("codigo_colegio_id")+"");
 			else
 				return null;
 		} catch (SQLException e) {
