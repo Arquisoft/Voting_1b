@@ -52,7 +52,7 @@ public class DBUpdate {
 			if(driver.equals(DRIVER_MYSQL)){
 				con.prepareStatement("CREATE TABLE IF NOT EXISTS USUARIOS ( id INT AUTO_INCREMENT PRIMARY KEY,"
 						+ " name VARCHAR(30), ename  VARCHAR(50), nif varchar(10), codigo_colegio_id"
-						+ " BIGINT, pass varchar(256), admin boolean, UNIQUE(nif), UNIQUE(email) );").executeUpdate();
+						+ " BIGINT, pass varchar(256), admin boolean, UNIQUE(nif), UNIQUE(ename) );").executeUpdate();
 				//TODO  cambiar varchar(20) por Long
 			}
 		} catch (SQLException e) {
