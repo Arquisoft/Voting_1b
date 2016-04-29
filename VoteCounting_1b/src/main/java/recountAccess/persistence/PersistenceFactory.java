@@ -1,4 +1,4 @@
-﻿package recountAccess.persistence;
+package recountAccess.persistence;
 
 public interface PersistenceFactory {
 	
