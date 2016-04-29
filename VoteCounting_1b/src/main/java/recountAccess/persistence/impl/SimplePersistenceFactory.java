@@ -14,7 +14,7 @@ public class SimplePersistenceFactory implements PersistenceFactory {
 
 	@Override
 	public VoteDao createVoteDao() {
-		return null;
+		return new VoteJdbcDAO();
 	}
 
 }

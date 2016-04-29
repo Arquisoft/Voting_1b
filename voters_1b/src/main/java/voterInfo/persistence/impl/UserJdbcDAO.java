@@ -1,12 +1,16 @@
-package recountAccess.persistence.impl;
+package voterInfo.persistence.impl;
 
 import java.sql.*;
 import java.util.*;
 
-import recountAccess.persistence.exception.*;
+import javax.persistence.PersistenceException;
 
-import recountAccess.model.User;
-import recountAccess.persistence.*;
+import voterInfo.model.User;
+import voterInfo.persistence.UserDao;
+import voterInfo.persistence.exception.AlreadyPersistedException;
+import voterInfo.persistence.exception.NotPersistedException;
+
+
 
 public class UserJdbcDAO implements UserDao  {
 

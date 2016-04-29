@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import recountAccess.model.Vote;
+import recountAccess.persistence.UserDao;
+import recountAccess.persistence.VoteDao;
+import recountAccess.persistence.impl.SimplePersistenceFactory;
 import recountAccess.repositorios.VoteRepository;
 
 @Controller
@@ -30,21 +33,26 @@ public class VoteController {
 	private Vote partido= new Vote();
 	private Vote colegio=new Vote();
 	
+	VoteDao repo= new SimplePersistenceFactory().createVoteDao();
+	
 	@RequestMapping(value="/stadistic", method=RequestMethod.GET)
 	    public String stadistic(Model model) {
 		
+	//List<Object[]>prueba=repository.findVotespartido("PP");
+//	List<Object[]>prueba2=repo.findVotespartido("");
+		
 		List <Object[]> nueva=new ArrayList<>();
-		nueva.add(repository.findAllPollingStations().get(0));
+		nueva.add(repo.findAllPollingStations().get(0));
 				
 	        model.addAttribute("pollingStations", nueva);
-			model.addAttribute("votesPartyPStation", repository.findVotersByPollingStationAndParty());
+			model.addAttribute("votesPartyPStation", repo.findVotersByPollingStationAndParty());
 			
-			model.addAttribute("votosPartido",repository.findVotesByPollingStationAndParty(2500));
+			model.addAttribute("votosPartido",repo.findVotesByPollingStationAndParty(12));
 			
-			model.addAttribute("colegios",repository.findAllPollingStations());
+			model.addAttribute("colegios",repo.findAllPollingStations());
 			@SuppressWarnings("unused")
-			List <Object[]> nueva1=repository.findPartidos();
-			model.addAttribute("partidos",repository.findPartidos());
+			List <String> nueva1=repo.findPartidos();
+			model.addAttribute("partidos",repo.findPartidos());
 			
 			model.addAttribute("colegio", new Vote());
 			model.addAttribute("partido", new Vote());
@@ -55,7 +63,7 @@ public class VoteController {
 	@ResponseBody
 	public Map<String, Object> stadisticData() {
 		
-		List<Object[]> parties = repository.countAllVotes();
+		List<Object[]> parties = repo.countAllVotes();
 		
 	
 		Map<String, Object> data = new HashMap<>();
@@ -104,7 +112,7 @@ public class VoteController {
 	@ResponseBody
 	public Map<String, Object> stadisticDataPollingStation(@PathVariable("pollingStationCode") String pollingStationCode) {
 		
-		List<Object[]> parties = repository.findAllPollingStations();
+		List<Object[]> parties = repo.findAllPollingStations();
 		
 		Map<String, Object> data = new HashMap<>();
 		
@@ -149,20 +157,20 @@ public class VoteController {
 	@RequestMapping(value="/stadistic", method=RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute Vote greeting, Model model, HttpSession sesion) {
 		List <Object[]> nueva=new ArrayList<>();
-		nueva.add(repository.findAllPollingStations().get(0));
+		nueva.add(repo.findAllPollingStations().get(0));
 				
 	        model.addAttribute("pollingStations", nueva);
-			model.addAttribute("votesPartyPStation", repository.findVotersByPollingStationAndParty());
+			model.addAttribute("votesPartyPStation", repo.findVotersByPollingStationAndParty());
 			
-			model.addAttribute("votosPartido",repository.findVotesByPollingStationAndParty(2500));
+			model.addAttribute("votosPartido",repo.findVotesByPollingStationAndParty(12));
 			
-			model.addAttribute("colegios",repository.findAllPollingStations());
+			model.addAttribute("colegios",repo.findAllPollingStations());
 			
-			 parties = repository.findVotesByPollingStationAndParty(greeting.getPollingStationCode());
+			 parties = repo.findVotesByPollingStationAndParty(greeting.getPollingStationCode());
 			//consulta para rellenar el grafico
 			model.addAttribute("colegio", greeting);
 			colegio=greeting;
-			model.addAttribute("partidos",repository.findPartidos());
+			model.addAttribute("partidos",repo.findPartidos());
 			model.addAttribute("partido",partido);
 			
 			return "stadistic";
@@ -221,17 +229,17 @@ public class VoteController {
 	@RequestMapping(value="/stadistic_party", method=RequestMethod.POST)
     public String greetingParty(@ModelAttribute Vote greeting, Model model, HttpSession sesion) {
 		List <Object[]> nueva=new ArrayList<>();
-		nueva.add(repository.findAllPollingStations().get(0));
+		nueva.add(repo.findAllPollingStations().get(0));
 				
 	        model.addAttribute("pollingStations", nueva);
-			model.addAttribute("votesPartyPStation", repository.findVotersByPollingStationAndParty());
+			model.addAttribute("votesPartyPStation", repo.findVotersByPollingStationAndParty());
 			
-			model.addAttribute("votosPartido",repository.findVotesByPollingStationAndParty(2500));
+			model.addAttribute("votosPartido",repo.findVotesByPollingStationAndParty(12));
 			
-			model.addAttribute("colegios",repository.findAllPollingStations());
-			model.addAttribute("partidos",repository.findPartidos());
+			model.addAttribute("colegios",repo.findAllPollingStations());
+			model.addAttribute("partidos",repo.findPartidos());
 			
-			 votosPartido = repository.findVotespartido(greeting.getParty());
+			 votosPartido = repo.findVotespartido(greeting.getParty());
 			//consulta para rellenar el grafico
 			model.addAttribute("partido", greeting);
 			model.addAttribute("colegio",colegio);

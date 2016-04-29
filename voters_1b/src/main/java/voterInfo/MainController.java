@@ -1,15 +1,14 @@
-package recountAccess;
+package voterInfo;
 
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import recountAccess.model.User;
-import recountAccess.persistence.*;
-import recountAccess.persistence.exception.AlreadyPersistedException;
-import recountAccess.persistence.exception.NotPersistedException;
-import recountAccess.persistence.impl.SimplePersistenceFactory;
+import voterInfo.model.User;
+import voterInfo.persistence.UserDao;
+import voterInfo.persistence.exception.NotPersistedException;
+import voterInfo.persistence.impl.SimplePersistenceFactory;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -37,10 +36,11 @@ public class MainController {
     
     @RequestMapping(value="/", method=RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute User greeting, Model model, HttpSession sesion) {
-    	model.addAttribute("userinfo", greeting);
+    	
     	try{
     		User users=repository.findByLogin(greeting.getLogin());
         	if (users!=null){
+        		model.addAttribute("userinfo", users);
         		User usuario=users;
         		if(usuario.getPassword().equals(greeting.getPassword())){
         			sesion.setAttribute("login", greeting.getLogin());
