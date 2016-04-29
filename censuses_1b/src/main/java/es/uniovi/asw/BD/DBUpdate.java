@@ -15,11 +15,20 @@ import es.uniovi.asw.reports.ReportWriter;
  *
  */
 public class DBUpdate {
+	
+	private static String DRIVER_HSQLDB = "org.hsqldb.jdbcDriver";
+	private static String URL_HSQLDB = "jdbc:hsqldb:hsql://localhost";
+	private static String USER_HSQLDB = "sa";
+	private static String PASS_HSQLDB = "";
 
-	private static String DRIVER_HSQLDB = "org.postgresql.Driver";
-	private static String URL_HSQLDB = "jdbc:postgresql://ec2-54-235-85-65.compute-1.amazonaws.com:5432/ddhkb9n4tp9rvn?sslmode=require";
-	private static String USER_HSQLDB = "fdrqudzzijmogt";
-	private static String PASS_HSQLDB = "65bvhXlALUam3hYiighVQw4NQ-";
+	@SuppressWarnings("unused")
+	private static String DRIVER_POSTGRESQL = "org.postgresql.Driver";
+	@SuppressWarnings("unused")
+	private static String URL_POSTGRESQL = "jdbc:postgresql://ec2-54-235-85-65.compute-1.amazonaws.com:5432/ddhkb9n4tp9rvn?sslmode=require";
+	@SuppressWarnings("unused")
+	private static String USER_POSTGRESQL = "fdrqudzzijmogt";
+	@SuppressWarnings("unused")
+	private static String PASS_POSTGRESQL = "65bvhXlALUam3hYiighVQw4NQ-";
 
 	private static String DRIVER_MYSQL = "com.mysql.jdbc.Driver";
 	private static String URL_MYSQL = "jdbc:mysql://127.0.0.1/censuses_1b";
