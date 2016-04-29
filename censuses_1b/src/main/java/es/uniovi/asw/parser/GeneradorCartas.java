@@ -1,4 +1,4 @@
-package es.uniovi.asw.passer;
+package es.uniovi.asw.parser;
 
 import java.io.FileNotFoundException;
 

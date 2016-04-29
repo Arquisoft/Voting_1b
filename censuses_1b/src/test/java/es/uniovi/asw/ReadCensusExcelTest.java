@@ -11,8 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.passer.ReadCensus;
-import es.uniovi.asw.passer.impl.ReadCensusExcel;
+import es.uniovi.asw.parser.ReadCensus;
+import es.uniovi.asw.parser.impl.ReadCensusExcel;
 
 public class ReadCensusExcelTest {
 	

@@ -1,4 +1,4 @@
-package es.uniovi.asw.passer.impl;
+package es.uniovi.asw.parser.impl;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +14,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.passer.AbstractReadCensus;
-import es.uniovi.asw.passer.GeneradorCartas;
+import es.uniovi.asw.parser.AbstractReadCensus;
+import es.uniovi.asw.parser.GeneradorCartas;
 
 public class ReadCensusExcel extends AbstractReadCensus {
 

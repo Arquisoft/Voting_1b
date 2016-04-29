@@ -1,4 +1,4 @@
-package es.uniovi.asw.passer;
+package es.uniovi.asw.parser;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,8 +8,8 @@ import java.util.List;
 import com.itextpdf.text.DocumentException;
 
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.passer.impl.GeneradorCartasTXT;
-import es.uniovi.asw.passer.impl.HashedGenerator;
+import es.uniovi.asw.parser.impl.GeneradorCartasTXT;
+import es.uniovi.asw.parser.impl.HashedGenerator;
 import es.uniovi.asw.reports.ReportWriter;
 import es.uniovi.asw.util.Comprobaciones;
 

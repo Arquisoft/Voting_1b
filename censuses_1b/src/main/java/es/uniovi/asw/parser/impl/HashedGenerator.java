@@ -1,10 +1,10 @@
-package es.uniovi.asw.passer.impl;
+package es.uniovi.asw.parser.impl;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.passer.GeneradorContrasenas;
+import es.uniovi.asw.parser.GeneradorContrasenas;
 
 
 public class HashedGenerator implements GeneradorContrasenas {

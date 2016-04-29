@@ -1,10 +1,10 @@
-package es.uniovi.asw.passer.impl;
+package es.uniovi.asw.parser.impl;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.passer.GeneradorCartas;
+import es.uniovi.asw.parser.GeneradorCartas;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;

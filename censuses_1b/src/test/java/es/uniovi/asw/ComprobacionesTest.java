@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.passer.impl.HashedGenerator;
+import es.uniovi.asw.parser.impl.HashedGenerator;
 import es.uniovi.asw.util.Comprobaciones;
 
 public class ComprobacionesTest {
