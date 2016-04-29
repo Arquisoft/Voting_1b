@@ -1,18 +1,15 @@
 package recountAccess;
 
-import java.util.List;
 
-import javax.xml.ws.http.HTTPException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import recountAccess.model.User;
-import recountAccess.repositorios.UserInfoRepository;
 import recountAccess.persistence.*;
+import recountAccess.persistence.impl.SimplePersistenceFactory;
 
 //controlador para la parte por Consola
 
@@ -22,16 +19,16 @@ public class Controller {
 	
 	//@Autowired
     //UserInfoRepository repository;
-	UserJdbcDAO repository= new SimplePersistenceFactory.createUserDao();
+	UserDao repository= new SimplePersistenceFactory().createUserDao();
     
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public User update(@RequestBody User car) {	
-    	Integer pollingStationCode;
+    	Long pollingStationCode;
         if (car != null) {
         	try{
-        	List<User> users=repository.findByLogin(car.getLogin());
+        	User users=repository.findByLogin(car.getLogin());
         	if (users!=null){
-        		User usuario=users.get(0);
+        		User usuario=users;
         		if(usuario.getPassword().equals(car.getPassword())){
         			pollingStationCode=usuario.getPollingStationCode();
         			car=usuario;

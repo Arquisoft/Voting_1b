@@ -1,4 +1,4 @@
-package com.sdi.persistence.exception;
+package recountAccess.persistence.exception;
 
 /**
  * Thrown if an operation needs to save an entity and it already exists 

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import recountAccess.model.UserInfo;
 import recountAccess.model.Vote;
 import recountAccess.repositorios.VoteRepository;
 
@@ -43,6 +42,7 @@ public class VoteController {
 			model.addAttribute("votosPartido",repository.findVotesByPollingStationAndParty(2500));
 			
 			model.addAttribute("colegios",repository.findAllPollingStations());
+			@SuppressWarnings("unused")
 			List <Object[]> nueva1=repository.findPartidos();
 			model.addAttribute("partidos",repository.findPartidos());
 			

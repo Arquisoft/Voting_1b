@@ -1,11 +1,12 @@
-﻿package com.sdi.persistence.impl;
+﻿package recountAccess.persistence.impl;
 
 import java.sql.*;
 import java.util.*;
 
-import main.java.model.User;
-import main.java.persistence.UserDao;
-import main.java.persistence.exception.*;
+import recountAccess.persistence.exception.*;
+
+import recountAccess.model.User;
+import recountAccess.persistence.*;
 
 public class UserJdbcDAO implements UserDao  {
 
@@ -167,7 +168,7 @@ public class UserJdbcDAO implements UserDao  {
 			ps.setString(2, a.getLogin());
 			ps.setString(3, a.getNif());
 			ps.setString(4, a.getName());
-			ps.setLong(5, a.getPollingStationCode);
+			ps.setLong(5, a.getPollingStationCode());
 
 			rows = ps.executeUpdate();
 			if (rows != 1) {
@@ -205,7 +206,7 @@ public class UserJdbcDAO implements UserDao  {
 			ps.setString(2, a.getLogin());
 			ps.setString(3, a.getNif());
 			ps.setString(4, a.getName());
-			ps.setLong(5, a.getPollingStationCode);
+			ps.setLong(5, a.getPollingStationCode());
 			ps.setLong(6, a.getId());
 
 			rows = ps.executeUpdate();

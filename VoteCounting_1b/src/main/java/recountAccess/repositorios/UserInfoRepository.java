@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import recountAccess.model.User;
 
-public interface UserInfoRepository extends CrudRepository<UserInfo, Long>{
+public interface UserInfoRepository extends CrudRepository<User, Long>{
 	
 	List<User> findByLogin(String email);
 	List<User> findAll();

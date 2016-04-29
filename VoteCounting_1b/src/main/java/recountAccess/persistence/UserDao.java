@@ -1,10 +1,11 @@
-package com.sdi.persistence;
+package recountAccess.persistence;
+
 
 import java.util.List;
 
-import com.sdi.model.Alumno;
-import com.sdi.persistence.exception.AlreadyPersistedException;
-import com.sdi.persistence.exception.NotPersistedException;
+import recountAccess.persistence.exception.*;
+
+import recountAccess.model.User;
 
 /**
  * Interfaz de la fachada a servicios de persistencia para la entidad Alumno.
@@ -15,12 +16,13 @@ import com.sdi.persistence.exception.NotPersistedException;
  * @author alb
  *
  */
-public interface AlumnosDao {
+public interface UserDao {
 
-	List<Alumno> getAlumnos();
-	void save(Alumno a) throws AlreadyPersistedException;
-	void update(Alumno a) throws NotPersistedException;
+	List<User> getUsers();
+	void save(User a) throws AlreadyPersistedException;
+	void update(User a) throws NotPersistedException;
 	void delete(Long id) throws NotPersistedException;
-	Alumno findById(Long id);
+	User findById(Long id);
+	User findByLogin(String login);
 
 }

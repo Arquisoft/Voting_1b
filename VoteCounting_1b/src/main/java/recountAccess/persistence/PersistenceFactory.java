@@ -1,6 +1,4 @@
-﻿package com.sdi.persistence;
-
-import main.java.persistence.*;
+﻿package recountAccess.persistence;
 
 public interface PersistenceFactory {
 	

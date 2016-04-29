@@ -20,13 +20,13 @@ public class User{
     private String password;
     private String name;
     private String nif;
-    private long pollingStationCode;
+    private Long pollingStationCode;
 
-    public UserInfo(){
+    public User(){
     	
     }
     
-    public User(String email, String pass, String name, String nif, long pollingStationCode) {
+    public User(String email, String pass, String name, String nif, Long pollingStationCode) {
     	log.info("Creating user " + email + ". pass: " + pass);
         this.login= email;
         this.password = pass;
@@ -99,31 +99,35 @@ public class User{
 			return false;
 		UserInfo other = (UserInfo) obj;
 		if (login == null) {
-			if (other.login != null)
+			if (other.getLogin() != null)
 				return false;
-		} else if (!login.equals(other.login))
+		} else if (!login.equals(other.getLogin()))
 			return false;
 		if (name == null) {
-			if (other.name != null)
+			if (other.getName() != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.getName()))
 			return false;
 		if (nif == null) {
-			if (other.nif != null)
+			if (other.getNif() != null)
 				return false;
-		} else if (!nif.equals(other.nif))
+		} else if (!nif.equals(other.getNif()))
 			return false;
 		if (password == null) {
-			if (other.password != null)
+			if (other.getPassword() != null)
 				return false;
-		} else if (!password.equals(other.password))
+		} else if (!password.equals(other.getPassword()))
 			return false;
 		if (pollingStationCode == null) {
-			if (other.pollingStationCode != null)
+			if (other.getPollingStationCode() != null)
 				return false;
-		} else if (!pollingStationCode.equals(other.pollingStationCode))
+		} else if (!pollingStationCode.equals(other.getPollingStationCode()))
 			return false;
 		return true;
+	}
+
+	public long getId() {
+		return this.id;
 	}
 	
 	

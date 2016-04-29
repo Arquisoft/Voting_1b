@@ -6,15 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import recountAccess.model.User;
-import recountAccess.repositorios.UserInfoRepository;
 import recountAccess.persistence.*;
-
-import java.util.List;
+import recountAccess.persistence.exception.AlreadyPersistedException;
+import recountAccess.persistence.impl.SimplePersistenceFactory;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,7 +25,7 @@ public class MainController {
 	//@Autowired
 	//UserInfoRepository repository;
 	
-	UserJdbcDAO users = new SimplePersistenceFactory.createUserDao();
+	UserDao repository = new SimplePersistenceFactory().createUserDao();
  
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String greetingForm(Model model) {
@@ -40,9 +38,9 @@ public class MainController {
     public String greetingSubmit(@ModelAttribute User greeting, Model model, HttpSession sesion) {
     	model.addAttribute("userinfo", greeting);
     	try{
-    		List<User> users=users.findByLogin(greeting.getLogin());
+    		User users=repository.findByLogin(greeting.getLogin());
         	if (users!=null){
-        		User usuario=users.get(0);
+        		User usuario=users;
         		if(usuario.getPassword().equals(greeting.getPassword())){
         			sesion.setAttribute("login", greeting.getLogin());
         			return "result";
@@ -69,15 +67,20 @@ public class MainController {
     	}
     	else {
     		String login = (String)sesion.getAttribute("login");
-    		List<User> users = repository.findByLogin(login);
-    		if (users.isEmpty()) {
+    		User users = repository.findByLogin(login);
+    		if (users == null) {
     			throw new RuntimeException();
     		}
     		else {
-    			User userInfo = users.get(0);
+    			User userInfo = users;
     			if (userInfo.getPassword().equals(cambiarClave.getClaveAnterior())) {
         			userInfo.changePassword(cambiarClave.getClaveNueva());
-        			repository.save(userInfo);
+        			try {
+						repository.save(userInfo);
+					} catch (AlreadyPersistedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
     			}
     			else {
     	    		br.addError(new FieldError("cambiarClave", "claveAnterior", "Clave anterior mal"));

@@ -1,14 +1,20 @@
-package com.sdi.persistence.impl;
+package recountAccess.persistence.impl;
 
 
-import main.java.persistence.UserDao;
-import main.java.persistence.PersistenceFactory;
+import recountAccess.persistence.UserDao;
+import recountAccess.persistence.VoteDao;
+import recountAccess.persistence.PersistenceFactory;
 
 public class SimplePersistenceFactory implements PersistenceFactory {
 
 	@Override
 	public UserDao createUserDao() {
 		return new UserJdbcDAO();
+	}
+
+	@Override
+	public VoteDao createVoteDao() {
+		return null;
 	}
 
 }
