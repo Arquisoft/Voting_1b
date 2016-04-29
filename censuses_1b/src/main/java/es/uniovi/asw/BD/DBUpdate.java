@@ -51,8 +51,9 @@ public class DBUpdate {
 			con = DriverManager.getConnection(url, user, pass);
 			if(driver.equals(DRIVER_MYSQL)){
 				con.prepareStatement("CREATE TABLE IF NOT EXISTS USUARIOS ( id INT AUTO_INCREMENT PRIMARY KEY,"
-						+ " name VARCHAR(30), email  VARCHAR(50), nif varchar(10), censusesInfo"
-						+ " varchar(20), pass varchar(256), UNIQUE(nif), UNIQUE(email) );").executeUpdate();
+						+ " name VARCHAR(30), ename  VARCHAR(50), nif varchar(10), codigo_colegio_id"
+						+ " varchar(20), pass varchar(256), admin boolean, UNIQUE(nif), UNIQUE(email) );").executeUpdate();
+				//TODO  cambiar varchar(20) por Long
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException("No se ha podido establecer la conexión.", e);
@@ -70,7 +71,7 @@ public class DBUpdate {
 	}
 
 	public void insert(Votante v){
-		String insertar="insert into USUARIOS(name, email, nif, censusesInfo, pass) values (?,?,?,?,?)";
+		String insertar="insert into USUARIOS(name, ename, nif, codigo_colegio_id, pass,admin) values (?,?,?,?,?,?)";
 		PreparedStatement insercion = null;
 		try {			
 			insercion= con.prepareStatement(insertar);
@@ -79,6 +80,7 @@ public class DBUpdate {
 			insercion.setString(3,v.getNif());
 			insercion.setString(4, v.getCodigoColegio());
 			insercion.setString(5, v.getContrasena());
+			insercion.setBoolean(6, false);
 			insercion.executeUpdate();			
 		} catch (SQLException e) {
 			ReportWriter r = new ReportWriter();
