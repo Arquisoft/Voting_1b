@@ -16,7 +16,7 @@
 	<managed-bean>
 		<managed-bean-name>voter</managed-bean-name>
 		<managed-bean-class>
-			es.uniovi.asw.voter.beans.BeanVoter
+			es.uniovi.asw.voter.beans.MeterEnArquitectura
 		</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>

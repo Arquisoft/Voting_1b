@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterVote.beans;
+package es.uniovi.asw.voterVote.impl;
 
 import java.util.Date;
 import java.util.List;
@@ -13,11 +13,12 @@ import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
-import es.uniovi.asw.voterVote.bussiness.VoterVoteService;
-import es.uniovi.asw.voterVote.exception.AlredyVotedException;
-import es.uniovi.asw.voterVote.exception.BusinessException;
+import es.uniovi.asw.voterVote.SubmitVote;
+import es.uniovi.asw.voterVote.impl.bussiness.InsertVoteR;
+import es.uniovi.asw.voterVote.impl.exception.AlredyVotedException;
+import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 
-public class BeanOptions {
+public class SubmitVoteP implements SubmitVote {
 	
 	private VotableOption selectOption;
 	private ConfigurationElection configurationElection;
@@ -46,7 +47,7 @@ public class BeanOptions {
 
 	public List<VotableOption> getVotableOptions(ConfigurationElection configurationElection) {
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		VoterVoteService vvs = ctx.getBean(VoterVoteService.class);
+		InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
 		this.configurationElection = configurationElection;
 		
 		return vvs.getVotableOptions(configurationElection);
@@ -55,7 +56,7 @@ public class BeanOptions {
 	public void vote(){
 		boolean fail = false;
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		VoterVoteService vvs = ctx.getBean(VoterVoteService.class);
+		InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
 		
 		try {
 			vvs.voteOnElection(configurationElection, new Vote(new Date(), selectOption, 1), email, password);

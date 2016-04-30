@@ -1,10 +1,11 @@
-package es.uniovi.asw.voterVote.bussiness;
+package es.uniovi.asw.voterVote.impl.bussiness;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import es.uniovi.asw.dbupdate.InsertVote;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.TelematicVoter;
 import es.uniovi.asw.dbupdate.model.User;
@@ -15,21 +16,15 @@ import es.uniovi.asw.dbupdate.repositories.UserDAO;
 import es.uniovi.asw.dbupdate.repositories.VotableOptionDAO;
 import es.uniovi.asw.dbupdate.repositories.VoteDAO;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
-import es.uniovi.asw.voterVote.exception.AlredyVotedException;
-import es.uniovi.asw.voterVote.exception.BusinessException;
+import es.uniovi.asw.voterVote.impl.exception.AlredyVotedException;
+import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 
 @Component
-public class VoterVoteService {
-	
+public class InsertVoteR {
 	@Autowired
-	VotableOptionDAO vd;
+	InsertVote vd;
+
 	
-	@Autowired(required=true)
-	private UserDAO ud;
-	@Autowired(required=true)
-	private TelematicVoterDAO td;
-	@Autowired(required=true)
-	private VoteDAO votoDao;
 	
 	public List<VotableOption> getVotableOptions(ConfigurationElection configurationElection){
 		List<VotableOption> votableOptions = vd.findByConfigurationElection(configurationElection);
@@ -39,13 +34,13 @@ public class VoterVoteService {
 	
 	public void voteOnElection(ConfigurationElection c, Vote v, String email, String password) throws InvalidUserException, BusinessException, AlredyVotedException {
 	
-		User user = ud.findByMailAndContrasena(email, password);
+		User user = vd.findByMailAndContrasena(email, password);
 
 		if(user == null){
 			throw new InvalidUserException("Usuario incorrecto.");
 		}
 		
-		TelematicVoter miVotoTelematico=td.findByUserAndConfigurationElection(user, c);
+		TelematicVoter miVotoTelematico=vd.findByUserAndConfigurationElection(user, c);
 		v.setColegio(user.getCodigoColegio());
 		
 		if(miVotoTelematico == null){
@@ -57,9 +52,9 @@ public class VoterVoteService {
 		}
 		
 		miVotoTelematico.setVoted(true);
-		td.save(miVotoTelematico);
+		vd.save(miVotoTelematico);
 		
-		votoDao.save(v);
+		vd.save(v);
 		
 	}
 

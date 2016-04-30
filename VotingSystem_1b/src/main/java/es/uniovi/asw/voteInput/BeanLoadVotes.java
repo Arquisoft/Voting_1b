@@ -14,9 +14,9 @@ import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
-import es.uniovi.asw.voterVote.bussiness.VoteInputService;
-import es.uniovi.asw.voterVote.bussiness.VoterVoteService;
-import es.uniovi.asw.voterVote.exception.BusinessException;
+import es.uniovi.asw.voterVote.impl.bussiness.VoteInputService;
+import es.uniovi.asw.voterVote.impl.bussiness.InsertVoteR;
+import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 
 
 @Component
@@ -47,7 +47,7 @@ public class BeanLoadVotes {
 
 		public List<Vote> getVotes(ConfigurationElection configurationElection) {
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-			VoterVoteService vvs = ctx.getBean(VoterVoteService.class);
+			InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
 			this.configurationElection = configurationElection;
 			
 			List<VotableOption> miLista=vvs.getVotableOptions(configurationElection);

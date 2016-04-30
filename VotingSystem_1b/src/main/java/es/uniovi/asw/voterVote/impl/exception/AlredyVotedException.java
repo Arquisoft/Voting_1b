@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterVote.exception;
+package es.uniovi.asw.voterVote.impl.exception;
 
 public class AlredyVotedException  extends Exception {
 	

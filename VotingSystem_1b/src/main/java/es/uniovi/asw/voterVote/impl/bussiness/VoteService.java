@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterVote.bussiness;
+package es.uniovi.asw.voterVote.impl.bussiness;
 
 import java.util.List;
 
