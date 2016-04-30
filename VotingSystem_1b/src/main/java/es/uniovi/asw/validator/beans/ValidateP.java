@@ -6,10 +6,11 @@ import javax.faces.context.FacesContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import es.uniovi.asw.validator.bussiness.ValidatorService;
+import es.uniovi.asw.validator.Validate;
+import es.uniovi.asw.validator.bussiness.CheckUserR;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 
-public class BeanValidator {
+public class ValidateP implements Validate{
 	
 	private String email;
 	private String password;
@@ -28,8 +29,12 @@ public class BeanValidator {
 	}
 	
 	public String validar(){
+		return validar(this.email, this.password);
+	}
+	@Override
+	public String validar(String email, String password) {
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		ValidatorService vs = ctx.getBean(ValidatorService.class);
+		CheckUserR vs = ctx.getBean(CheckUserR.class);
 		
 		try {
 			vs.validar(email, password);
@@ -40,6 +45,7 @@ public class BeanValidator {
 		}
 		
 		return "exito";
+		
 	}
 
 }

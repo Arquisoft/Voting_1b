@@ -8,7 +8,7 @@ import es.uniovi.asw.dbupdate.repositories.UserDAO;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 
 @Component
-public class ValidatorService {
+public class CheckUserR {
 	
 	@Autowired(required=true)
 	private UserDAO ud;
