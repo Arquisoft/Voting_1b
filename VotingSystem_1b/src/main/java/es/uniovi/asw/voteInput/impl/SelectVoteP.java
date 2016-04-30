@@ -1,4 +1,4 @@
-package es.uniovi.asw.voteInput;
+package es.uniovi.asw.voteInput.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,13 +14,13 @@ import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
-import es.uniovi.asw.voterVote.impl.bussiness.VoteInputService;
-import es.uniovi.asw.voterVote.impl.bussiness.InsertVoteR;
+import es.uniovi.asw.voteInput.SelectVote;
+import es.uniovi.asw.voteInput.impl.bussiness.InsertVoteR;
 import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 
 
 @Component
-public class BeanLoadVotes {
+public class SelectVoteP implements SelectVote {
 	
 		
 	
@@ -62,7 +62,7 @@ public class BeanLoadVotes {
 		public void loadVote(){
 			boolean fail = false;
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-			VoteInputService vvs = ctx.getBean(VoteInputService.class);
+			InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
 			
 			try {
 				

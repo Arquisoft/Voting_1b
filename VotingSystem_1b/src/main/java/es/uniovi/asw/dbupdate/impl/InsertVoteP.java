@@ -15,6 +15,8 @@ import es.uniovi.asw.dbupdate.repositories.TelematicVoterDAO;
 import es.uniovi.asw.dbupdate.repositories.UserDAO;
 import es.uniovi.asw.dbupdate.repositories.VotableOptionDAO;
 import es.uniovi.asw.dbupdate.repositories.VoteDAO;
+import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
+import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 @Component
 public class InsertVoteP implements InsertVote {
 
@@ -48,6 +50,19 @@ public class InsertVoteP implements InsertVote {
 	}
 	@Override
 	public void save(Vote v) {
+		votoDao.save(v);
+		
+	}
+	@Override
+	public void loadVoteForOption(ConfigurationElection c, Vote v,
+			String email, String password) throws BusinessException,
+			InvalidUserException {
+		User user = ud.findByMailAndContrasena(email, password);
+
+		if(user == null || !user.isAdmin()){
+			throw new InvalidUserException("Usuario incorrecto.");
+		}
+		
 		votoDao.save(v);
 		
 	}

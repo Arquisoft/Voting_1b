@@ -9,6 +9,8 @@ import es.uniovi.asw.dbupdate.model.TelematicVoter;
 import es.uniovi.asw.dbupdate.model.User;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
+import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
+import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 
 @Component
 public interface InsertVote {
@@ -24,5 +26,7 @@ public interface InsertVote {
 			ConfigurationElection c);
 
 	void save(Vote v);
+	
+	public void loadVoteForOption(ConfigurationElection c, Vote v, String email, String password) throws BusinessException, InvalidUserException;
 
 }
