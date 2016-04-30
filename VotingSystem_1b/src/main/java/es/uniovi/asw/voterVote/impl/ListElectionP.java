@@ -8,18 +8,18 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
-import es.uniovi.asw.voterVote.getVotationOptions;
-import es.uniovi.asw.voterVote.impl.bussiness.VoteService;
+import es.uniovi.asw.voterVote.ListElection;
+import es.uniovi.asw.voterVote.impl.bussiness.GetElectionListR;
 
 
-public class MeterEnArquitectura {
+public class ListElectionP implements ListElection{
 	
 	private List<ConfigurationElection> list;
 	private ConfigurationElection configurationElection;
 
 	public List<ConfigurationElection> getList() {
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		VoteService vs = ctx.getBean(VoteService.class);
+		GetElectionListR vs = ctx.getBean(GetElectionListR.class);
 		
 		list = vs.getElections();
 		return list;
