@@ -15,7 +15,6 @@ public class InsertApplyForEVoteR {
 	@Autowired
 	private InserApplyForEVote ia;
 	
-	
 	public void saveApplication(String email, String password,
 			ConfigurationElection configurationElection) throws InvalidUserException {
 		
