@@ -12,13 +12,17 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.ServletContextAware;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
 @Controller
 @EnableJpaRepositories
+@RequestMapping("/")
 public class Main extends SpringBootServletInitializer implements ServletContextAware {
 	
     public static void main(String[] args) {
@@ -41,4 +45,19 @@ public class Main extends SpringBootServletInitializer implements ServletContext
         servletContext.addListener(com.sun.faces.config.ConfigureListener.class);
     }
 
+    
+    @RequestMapping(method = RequestMethod.GET)
+	public RedirectView localRedirect() {
+	    RedirectView redirectView = new RedirectView();
+	    
+		redirectView.setUrl("index.xhtml");
+
+	    return redirectView;
+	}
+
+    
+    	
+    	
+        
+    
 }
