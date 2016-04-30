@@ -65,7 +65,8 @@ public class LoadUsers {
 					DBUpdate db= new DBUpdate();
 					db.conectar();
 					for(Votante v: votantes){
-						db.insert(v);
+						if(!db.exists(v.getNif()))
+							db.insert(v);
 					}
 					db.desconectar();
 				}
