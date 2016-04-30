@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 @Component
-public interface getVotationOptions {
+public interface GetVotationOptions {
 
 	List<VotableOption> findByConfigurationElection(
 			ConfigurationElection configurationElection);

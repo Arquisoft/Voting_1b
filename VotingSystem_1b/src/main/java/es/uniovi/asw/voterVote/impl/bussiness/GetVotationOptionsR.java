@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import es.uniovi.asw.dbupdate.InsertVote;
-import es.uniovi.asw.dbupdate.getVotationOptions;
+import es.uniovi.asw.dbupdate.GetVotationOptions;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 
-public class getVotationOptionsR {
+public class GetVotationOptionsR {
 	@Autowired
-	getVotationOptions vd;
+	GetVotationOptions vd;
 
 	
 	

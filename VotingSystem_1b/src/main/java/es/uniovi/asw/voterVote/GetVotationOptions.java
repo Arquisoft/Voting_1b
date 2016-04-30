@@ -5,9 +5,8 @@ import java.util.List;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 
-public interface getVotationOptions {
-
+public interface GetVotationOptions {
 	
-
 	List<VotableOption> getList(ConfigurationElection configurationElection);
+	
 }

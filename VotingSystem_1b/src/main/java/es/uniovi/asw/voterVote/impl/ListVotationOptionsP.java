@@ -9,10 +9,10 @@ import org.springframework.web.jsf.FacesContextUtils;
 
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
-import es.uniovi.asw.voterVote.getVotationOptions;
+import es.uniovi.asw.voterVote.GetVotationOptions;
 import es.uniovi.asw.voterVote.impl.bussiness.InsertVoteR;
 
-public class listVotationOptionsP implements getVotationOptions {
+public class ListVotationOptionsP implements GetVotationOptions {
 
 	@Override
 	public List<VotableOption> getList(ConfigurationElection configurationElection) {
