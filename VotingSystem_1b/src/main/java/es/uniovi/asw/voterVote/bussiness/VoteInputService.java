@@ -10,7 +10,7 @@ import es.uniovi.asw.dbupdate.repositories.TelematicVoterDAO;
 import es.uniovi.asw.dbupdate.repositories.UserDAO;
 import es.uniovi.asw.dbupdate.repositories.VotableOptionDAO;
 import es.uniovi.asw.dbupdate.repositories.VoteDAO;
-import es.uniovi.asw.voteApplication.exception.InvalidUserException;
+import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 import es.uniovi.asw.voterVote.exception.BusinessException;
 
 @Component

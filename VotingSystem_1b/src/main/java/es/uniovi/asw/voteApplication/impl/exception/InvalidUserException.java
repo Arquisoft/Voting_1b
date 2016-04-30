@@ -1,4 +1,4 @@
-package es.uniovi.asw.voteApplication.exception;
+package es.uniovi.asw.voteApplication.impl.exception;
 
 public class InvalidUserException  extends Exception {
 	

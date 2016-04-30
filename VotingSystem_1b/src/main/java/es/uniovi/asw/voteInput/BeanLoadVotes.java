@@ -13,7 +13,7 @@ import org.springframework.web.jsf.FacesContextUtils;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
-import es.uniovi.asw.voteApplication.exception.InvalidUserException;
+import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 import es.uniovi.asw.voterVote.bussiness.VoteInputService;
 import es.uniovi.asw.voterVote.bussiness.VoterVoteService;
 import es.uniovi.asw.voterVote.exception.BusinessException;

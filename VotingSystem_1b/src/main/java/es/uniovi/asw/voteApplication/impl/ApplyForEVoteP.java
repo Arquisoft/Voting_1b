@@ -1,4 +1,4 @@
-package es.uniovi.asw.voteApplication.beans;
+package es.uniovi.asw.voteApplication.impl;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -8,11 +8,12 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
-import es.uniovi.asw.voteApplication.bussiness.impl.SimpleApplicationService;
-import es.uniovi.asw.voteApplication.exception.InvalidUserException;
+import es.uniovi.asw.voteApplication.ApplyForEVote;
+import es.uniovi.asw.voteApplication.impl.business.InsertApplyForEVoteR;
+import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 
 @Component
-public class BeanApplication {
+public class ApplyForEVoteP implements ApplyForEVote{
 	
 	private String email;
 	private String password;
@@ -33,7 +34,7 @@ public class BeanApplication {
 	public void apply(ConfigurationElection configurationElection){
 		boolean fail = false;
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		SimpleApplicationService sas = ctx.getBean(SimpleApplicationService.class);
+		InsertApplyForEVoteR sas = ctx.getBean(InsertApplyForEVoteR.class);
 		
 		try {
 			sas.saveApplication(email, password, configurationElection);
