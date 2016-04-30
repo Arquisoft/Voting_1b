@@ -42,7 +42,11 @@ public class VoteController {
 //	List<Object[]>prueba2=repo.findVotespartido("");
 		
 		List <Object[]> nueva=new ArrayList<>();
+		List <Object[]> stations=repo.findAllPollingStations();
+		
+		if(stations.size()!=0){
 		nueva.add(repo.findAllPollingStations().get(0));
+		}
 				
 	        model.addAttribute("pollingStations", nueva);
 			model.addAttribute("votesPartyPStation", repo.findVotersByPollingStationAndParty());
