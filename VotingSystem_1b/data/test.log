@@ -301,3 +301,35 @@ INSERT INTO USUARIOS VALUES(2,FALSE,'12345','juan@gmail.com','65432176T','Juan',
 COMMIT
 INSERT INTO USUARIOS VALUES(3,TRUE,'cambiar','administracion@juntaElectoral.es','66666666A','Junta',1)
 COMMIT
+alter table electoral_college drop constraint FK_nhetwij9pikme8nkndt7d8flh
+alter table usuarios drop constraint FK_n3g3cldn68lw5shl04g61a1tq
+alter table votable_option drop constraint FK_i426giixuf6srm8mmyrebkyj0
+alter table votantes_telematicos drop constraint FK_3va285wtw6yk1kmfsjee06h26
+alter table votantes_telematicos drop constraint FK_g0t65728gyom7367g5kglhg6w
+alter table voto drop constraint FK_6bw93xfeghmixb4inby0qvj7y
+alter table voto drop constraint FK_8vk40vla3uskx2o4xbcpcb123
+drop table configuracion if exists
+drop table electoral_college if exists
+drop table usuarios if exists
+drop table votable_option if exists
+drop table votantes_telematicos if exists
+drop table voto if exists
+DISCONNECT
+/*C65*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C64*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C63*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C62*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C61*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C60*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C59*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C58*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C57*/SET SCHEMA PUBLIC
+DISCONNECT

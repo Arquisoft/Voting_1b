@@ -24,7 +24,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @EnableJpaRepositories
 @RequestMapping("/")
 public class Main extends SpringBootServletInitializer implements ServletContextAware {
-	
+	//bug magicp
     public static void main(String[] args) {
         SpringApplication.run(Main.class);   
     }
