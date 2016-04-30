@@ -1,4 +1,4 @@
-package es.uniovi.asw.voter.vote.bussiness;
+package es.uniovi.asw.voterVote.bussiness;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import es.uniovi.asw.dbupdate.repositories.TelematicVoterDAO;
 import es.uniovi.asw.dbupdate.repositories.UserDAO;
 import es.uniovi.asw.dbupdate.repositories.VotableOptionDAO;
 import es.uniovi.asw.dbupdate.repositories.VoteDAO;
-import es.uniovi.asw.voter.application.exception.InvalidUserException;
-import es.uniovi.asw.voter.vote.exception.AlredyVotedException;
-import es.uniovi.asw.voter.vote.exception.BusinessException;
+import es.uniovi.asw.voteApplication.exception.InvalidUserException;
+import es.uniovi.asw.voterVote.exception.AlredyVotedException;
+import es.uniovi.asw.voterVote.exception.BusinessException;
 
 @Component
 public class VoterVoteService {

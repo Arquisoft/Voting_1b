@@ -7,7 +7,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
 import es.uniovi.asw.validator.bussiness.ValidatorService;
-import es.uniovi.asw.voter.application.exception.InvalidUserException;
+import es.uniovi.asw.voteApplication.exception.InvalidUserException;
 
 public class BeanValidator {
 	

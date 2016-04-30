@@ -1,4 +1,4 @@
-package es.uniovi.asw.voter.vote.exception;
+package es.uniovi.asw.voterVote.exception;
 
 public class BusinessException  extends Exception {
 	

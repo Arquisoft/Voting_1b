@@ -1,7 +1,7 @@
-package es.uniovi.asw.voter.application.bussiness;
+package es.uniovi.asw.voteApplication.bussiness;
 
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
-import es.uniovi.asw.voter.application.exception.InvalidUserException;
+import es.uniovi.asw.voteApplication.exception.InvalidUserException;
 
 public interface ApplicationService {
 	

@@ -1,4 +1,4 @@
-package es.uniovi.asw.voter.beans;
+package es.uniovi.asw.voterVote.beans;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
-import es.uniovi.asw.voter.bussiness.VoteService;
+import es.uniovi.asw.voterVote.bussiness.VoteService;
 
 
 public class BeanVoter {

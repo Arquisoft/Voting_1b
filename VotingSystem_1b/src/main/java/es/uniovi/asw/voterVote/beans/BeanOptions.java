@@ -1,4 +1,4 @@
-package es.uniovi.asw.voter.vote.beans;
+package es.uniovi.asw.voterVote.beans;
 
 import java.util.Date;
 import java.util.List;
@@ -12,10 +12,10 @@ import org.springframework.web.jsf.FacesContextUtils;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
-import es.uniovi.asw.voter.application.exception.InvalidUserException;
-import es.uniovi.asw.voter.vote.bussiness.VoterVoteService;
-import es.uniovi.asw.voter.vote.exception.AlredyVotedException;
-import es.uniovi.asw.voter.vote.exception.BusinessException;
+import es.uniovi.asw.voteApplication.exception.InvalidUserException;
+import es.uniovi.asw.voterVote.bussiness.VoterVoteService;
+import es.uniovi.asw.voterVote.exception.AlredyVotedException;
+import es.uniovi.asw.voterVote.exception.BusinessException;
 
 public class BeanOptions {
 	
