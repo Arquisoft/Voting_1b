@@ -22,7 +22,7 @@ import org.springframework.validation.FieldError;
 @Controller
 public class MainController {
 
-	User user;
+	User user;//usuario
 	//@Autowired
 	//UserInfoRepository repository;
 	
