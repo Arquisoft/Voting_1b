@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import es.uniovi.asw.configuration.business.impl.SimpleConfigService;
 import es.uniovi.asw.configuration.business.impl.SimpleVotableOptionService;
+import es.uniovi.asw.dbupdate.impl.InsertConfigurationP;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 
@@ -45,7 +45,7 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 
 	public String configura() {
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		SimpleConfigService serviceConfig = ctx.getBean(SimpleConfigService.class);
+		InsertConfigurationP serviceConfig = ctx.getBean(InsertConfigurationP.class);
 		SimpleVotableOptionService serviceVo = ctx.getBean(SimpleVotableOptionService.class);
 		FacesContext fc = FacesContext.getCurrentInstance();		
 		try {

@@ -1,17 +1,17 @@
-package es.uniovi.asw.configuration.business.impl;
+package es.uniovi.asw.dbupdate.impl;
 
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import es.uniovi.asw.configuration.business.ConfigService;
+import es.uniovi.asw.dbupdate.InsertConfiguration;
 import es.uniovi.asw.dbupdate.exception.PersistenceException;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.repositories.ConfigurationDAO;
 
 @Component
-public class SimpleConfigService implements ConfigService {
+public class InsertConfigurationP implements InsertConfiguration {
 
 	@Autowired(required=true)
 	private ConfigurationDAO dao;
