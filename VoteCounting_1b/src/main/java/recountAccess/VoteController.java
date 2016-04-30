@@ -39,7 +39,7 @@ public class VoteController {
 	    public String stadistic(Model model) {
 		
 	//List<Object[]>prueba=repository.findVotespartido("PP");
-//	List<Object[]>prueba2=repo.findVotespartido("");
+//	List<Object[]>prueba2=repo.findVotespartido("");///
 		
 		List <Object[]> nueva=new ArrayList<>();
 		List <Object[]> stations=repo.findAllPollingStations();
