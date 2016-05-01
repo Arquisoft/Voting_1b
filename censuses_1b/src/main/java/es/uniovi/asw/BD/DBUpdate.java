@@ -14,6 +14,7 @@ import es.uniovi.asw.reports.ReportWriter;
  * Clase para interactuar con la base de datosaaa
  *
  */
+@SuppressWarnings("unused")
 public class DBUpdate {
 	
 	private static String DRIVER_HSQLDB = "org.hsqldb.jdbcDriver";
@@ -21,13 +22,9 @@ public class DBUpdate {
 	private static String USER_HSQLDB = "sa";
 	private static String PASS_HSQLDB = "";
 
-	@SuppressWarnings("unused")
 	private static String DRIVER_POSTGRESQL = "org.postgresql.Driver";
-	@SuppressWarnings("unused")
 	private static String URL_POSTGRESQL = "jdbc:postgresql://ec2-54-235-85-65.compute-1.amazonaws.com:5432/ddhkb9n4tp9rvn?sslmode=require";
-	@SuppressWarnings("unused")
 	private static String USER_POSTGRESQL = "fdrqudzzijmogt";
-	@SuppressWarnings("unused")
 	private static String PASS_POSTGRESQL = "65bvhXlALUam3hYiighVQw4NQ-";
 
 	private static String DRIVER_MYSQL = "com.mysql.jdbc.Driver";
@@ -39,7 +36,7 @@ public class DBUpdate {
 
 	public void conectar () {
 		if(System.getenv().get("TRAVIS") == null){
-			conectarse(DRIVER_HSQLDB, URL_HSQLDB, USER_HSQLDB, PASS_HSQLDB);
+			conectarse(DRIVER_POSTGRESQL, URL_POSTGRESQL, USER_POSTGRESQL, PASS_POSTGRESQL);
 		}
 		else{
 			conectarse(DRIVER_MYSQL, URL_MYSQL, USER_MYSQL, PASS_MYSQL);
@@ -80,7 +77,7 @@ public class DBUpdate {
 	}
 
 	public void insert(Votante v){
-		String insertar="insert into USUARIOS(name, ename, nif, codigo_colegio_id, pass,admin) values (?,?,?,?,?,?)";
+		String insertar="insert into usuarios(id, name, ename, nif, codigo_colegio_id, pass, admin) values (nextval('users_id_seq'),?,?,?,?,?,?)";
 		PreparedStatement insercion = null;
 		try {			
 			insercion= con.prepareStatement(insertar);
@@ -199,8 +196,8 @@ public class DBUpdate {
 			ps.setString(1, nif);
 			rs = ps.executeQuery();
 			if (rs.next())
-				return new Votante (rs.getNString("NAME"), rs.getNString("ENAME"), 
-						rs.getNString("NIF"), rs.getLong("codigo_colegio_id")+"");
+				return new Votante (rs.getString("NAME"), rs.getString("ENAME"), 
+						rs.getString("NIF"), rs.getLong("codigo_colegio_id")+"");
 			else
 				return null;
 		} catch (SQLException e) {
