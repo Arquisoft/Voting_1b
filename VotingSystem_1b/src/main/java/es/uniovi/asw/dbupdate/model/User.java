@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -17,14 +16,12 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq_gen")
-	@SequenceGenerator(name = "users_seq_gen", sequenceName = "users_id_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@Column(name="name")
 	private String nombre;
-	@Column(name="ename", unique=true)
+	@Column(name="ename")
 	private String mail;
-	@Column(unique=true)
 	private String nif;
 	@ManyToOne
 	private ElectoralCollege codigoColegio;
