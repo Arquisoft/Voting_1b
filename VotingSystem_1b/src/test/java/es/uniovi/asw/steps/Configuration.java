@@ -34,6 +34,8 @@ public class Configuration {
 	public void elige_las_opciones_dejando_campos_vacios_y_hace_click_en_validar() throws Throwable {
 		WebElement elemento = driver.findElement(By.id("input_form-cuerpo:nombre"));
 		elemento.sendKeys("Nombre");
+		elemento = driver.findElement(By.id("form-cuerpo:j_idt32:opcionesVoto_input"));
+		elemento.sendKeys("3");
 		elemento = driver.findElement(By.id("form-cuerpo:botonValidar"));
 		elemento.click();
 	}
