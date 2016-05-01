@@ -1,4 +1,4 @@
-package recountAccess.persistence.impl;
+package dBManagement.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,9 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import recountAccess.persistence.VoteDao;
+import dBManagement.GetVotes;
 
-public class VoteJdbcDAO implements VoteDao{
+
+
+public class GetV implements GetVotes{
 
 	String SQL_DRV = "org.hsqldb.jdbcDriver";
 	String SQL_URL = "jdbc:hsqldb:hsql://localhost/";

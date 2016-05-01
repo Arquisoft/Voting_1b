@@ -1,12 +1,14 @@
-package recountAccess.persistence.impl;
+package dBManagement.impl;
 
 import java.sql.*;
 import java.util.*;
 
-import recountAccess.persistence.exception.*;
-
+import dBManagement.UserDao;
+import dBManagement.exception.AlreadyPersistedException;
+import dBManagement.exception.NotPersistedException;
+import dBManagement.exception.PersistenceException;
 import recountAccess.model.User;
-import recountAccess.persistence.*;
+
 
 public class UserJdbcDAO implements UserDao  {
 

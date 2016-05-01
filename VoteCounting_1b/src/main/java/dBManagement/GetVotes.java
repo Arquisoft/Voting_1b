@@ -1,8 +1,8 @@
-package recountAccess.persistence;
+package dBManagement;
 
 import java.util.List;
 
-public interface VoteDao {
+public interface GetVotes {
 
 	List<Object[]> countAllVotes();
 	List<Object[]> findAllPollingStations();
