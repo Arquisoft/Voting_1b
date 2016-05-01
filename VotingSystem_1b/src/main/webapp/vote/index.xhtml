@@ -9,9 +9,39 @@
 		VoterVote
 	</ui:define>
 	<ui:define name="cuerpo">
-	<b:modal id="amodal" title="Introduce tus datos" styleClass="modalPseudoClass">
-				
+
+		<b:container id="all" layout="fluid">
+
+			<b:row>
+					<b:message for="all" />
+				</b:row>
+		
+				<b:dataTable id="tabla-votaciones" value="#{optionsList.getList(electionList.configurationElection)}" var="optionVotable" styleClass="table table-striped table-bordered" style="width:100%">
+				  <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Nombre" />
+				    </f:facet>
+				    <h:outputText value="#{optionVotable.nombre}" />
+				  </h:column>
+				   <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Descripcion" />
+				    </f:facet>
+				    <h:outputText value="#{optionVotable.descripcion}" />
+				  </h:column>
+				  <h:column>
+				  <f:facet name="header">
+				      <h:outputText value="Votar" />
+				    </f:facet>
+				    <h:commandButton id="votar" value="Votar" actionListener="#{submitVote.vote(electionList.configurationElection, optionVotable)}" p:data-toggle="modal"/>
+
+				  </h:column>
+				 
+				</b:dataTable>
 				<b:row>
+					<b:column >
+				    	<h2>Datos votante:</h2>
+				    </b:column>
 				    <b:column >
 				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{submitVote.email}">
 				            <f:facet name="prepend">
@@ -27,46 +57,6 @@
 	          			</b:inputSecret>
 				    </b:column>
 				</b:row>
-				<h:commandButton 
-			         		id="confirmar-voto"
-			         		value="Confirmar voto" 
-			         		actionListener="#{submitVote.vote(electionList.configurationElection)}"
-			         		look="primary" 
-			         		style="width:100%" 
-			         	/>
-		    <f:facet name="footer">
-		        <b:button value="Salir sin votar" dismiss="modal" onclick="return false;"/>
-		    </f:facet>
-		</b:modal>
-
-		<b:container id="all" layout="fluid">
-
-			<b:row>
-					<b:message for="all" />
-				</b:row>
-		
-				<b:dataTable value="#{optionsList.getList(electionList.configurationElection)}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
-				  <h:column>
-				    <f:facet name="header">
-				      <h:outputText value="Nombre" />
-				    </f:facet>
-				    <h:outputText value="#{option.nombre}" />
-				  </h:column>
-				   <h:column>
-				    <f:facet name="header">
-				      <h:outputText value="Descripcion" />
-				    </f:facet>
-				    <h:outputText value="#{option.descripcion}" />
-				  </h:column>
-				  <h:column>
-				  <f:facet name="header">
-				      <h:outputText value="Votar" />
-				    </f:facet>
-				    <b:button id="votar" value="Votar" onclick="ajax:#{submitVote.setSelectOption(option)};$('.modalPseudoClass').modal();return false;"/>
-
-				  </h:column>
-				 
-				</b:dataTable>
 					</b:container>
 	</ui:define>
 </ui:composition>

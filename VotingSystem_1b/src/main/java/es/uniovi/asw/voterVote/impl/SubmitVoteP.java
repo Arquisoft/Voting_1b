@@ -19,7 +19,6 @@ import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 
 public class SubmitVoteP implements SubmitVote {
 	
-	private VotableOption selectOption;
 	private String email;
 	private String password;
 	
@@ -35,17 +34,11 @@ public class SubmitVoteP implements SubmitVote {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public VotableOption getSelectOption() {
-		return selectOption;
-	}
-
-	public void setSelectOption(VotableOption selectOption) {
-		System.out.println(selectOption.getNombre());
-		this.selectOption = selectOption;
-	}
 	
-	public void vote(ConfigurationElection configurationElection){
+	public String vote(ConfigurationElection configurationElection, VotableOption selectOption){
 		vote(configurationElection, selectOption, email, password);
+		
+		return null;
 	}
 	
 	@Override

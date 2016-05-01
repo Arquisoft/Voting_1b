@@ -13,6 +13,7 @@ import org.springframework.web.jsf.FacesContextUtils;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
+import es.uniovi.asw.validator.impl.bussiness.CheckUserR;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 import es.uniovi.asw.voteInput.SelectVote;
 import es.uniovi.asw.voteInput.impl.bussiness.LoadVoteR;
@@ -60,6 +61,7 @@ public class SelectVoteP implements SelectVote {
 			boolean fail = false;
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 			LoadVoteR vvs = ctx.getBean(LoadVoteR.class);
+			CheckUserR v = ctx.getBean(CheckUserR.class);
 			
 			try {
 				
@@ -72,7 +74,8 @@ public class SelectVoteP implements SelectVote {
 			
 				
 			for(int i=0;i<votos.size();i++){
-				vvs.loadVoteForOption(configurationElection, votos.get(i),email, password);
+				v.validar(email, password);
+				vvs.loadVoteForOption(configurationElection, votos.get(i));
 				
 				
 			}

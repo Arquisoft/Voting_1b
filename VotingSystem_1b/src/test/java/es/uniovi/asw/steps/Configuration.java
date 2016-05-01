@@ -1,14 +1,8 @@
 package es.uniovi.asw.steps;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,15 +10,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
-import cucumber.api.java.es.Y;
-import es.uniovi.asw.CucumberTest;
 import es.uniovi.asw.Main;
-import es.uniovi.asw.dbupdate.model.ConfigurationElection;
-import es.uniovi.asw.dbupdate.model.ElectoralCollege;
-import es.uniovi.asw.dbupdate.model.User;
-import es.uniovi.asw.dbupdate.model.VotableOption;
-import es.uniovi.asw.dbupdate.repositories.ConfigurationDAO;
-import es.uniovi.asw.dbupdate.repositories.UserDAO;
 import es.uniovi.asw.util.SeleniumUtils;
 
 @ContextConfiguration(classes=Main.class, loader=SpringApplicationContextLoader.class)

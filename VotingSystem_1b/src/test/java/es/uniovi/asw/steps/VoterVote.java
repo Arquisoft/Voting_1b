@@ -50,18 +50,11 @@ public class VoterVote {
 		elemento.sendKeys(email);
 		elemento = driver.findElement(By.id("input_form-cuerpo:password"));
 		elemento.sendKeys(password);
-		elemento = driver.findElement(By.id("form-cuerpo:confirmar-voto"));
-		elemento.click();
-	}
-
-	@Entonces("^le piden los datos para confirmar el voto$")
-	public void le_piden_los_datos_para_confirmar_el_voto() throws Throwable {
-		SeleniumUtils.esperaCargaPagina(driver, "text", "Introduce tus datos", 2);
 	}
 
 	@Entonces("^se le muestra el mensaje \"([^\"]*)\"$")
 	public void se_le_muestra_el_mensaje(String mensaje) throws Throwable {
-		SeleniumUtils.esperaCargaPagina(driver, "text", mensaje, 2);
+		SeleniumUtils.esperaCargaPagina(driver, "text", mensaje, 10);
 		SeleniumUtils.finishTest(driver);
 	}
 }
