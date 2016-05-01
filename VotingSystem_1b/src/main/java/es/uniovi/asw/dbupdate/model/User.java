@@ -20,8 +20,9 @@ public class User {
 	private Long id;
 	@Column(name="name")
 	private String nombre;
-	@Column(name="ename")
+	@Column(name="ename", unique=true)
 	private String mail;
+	@Column(unique=true)
 	private String nif;
 	@ManyToOne
 	private ElectoralCollege codigoColegio;
