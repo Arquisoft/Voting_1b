@@ -1,19 +1,19 @@
-package voterInfo;
+package voterAccess;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import voterInfo.model.UserInfo;
+import voterAccess.model.UserInfo;
 
-public class VoterAccess implements GetVoterInfo{
+public class GetVI implements GetVoterInfo{
 
 	@Autowired
     DBManager repos;
 	
 	
 	
-	public VoterAccess(DBManager repository) {
+	public GetVI(DBManager repository) {
 		repos=repository;
 	}
 	

@@ -1,18 +1,18 @@
-package voterInfo.persistence.impl;
+package dBManagement.impl;
 
 import java.sql.*;
 import java.util.*;
 
 import javax.persistence.PersistenceException;
 
-import voterInfo.model.User;
-import voterInfo.persistence.UserDao;
-import voterInfo.persistence.exception.AlreadyPersistedException;
-import voterInfo.persistence.exception.NotPersistedException;
+import dBManagement.GetVoter;
+import dBManagement.exception.AlreadyPersistedException;
+import dBManagement.exception.NotPersistedException;
+import voterAccess.model.User;
 
 
 
-public class UserJdbcDAO implements UserDao  {
+public class GetVoterInfo implements GetVoter  {
 
 	String SQL_DRV = "org.hsqldb.jdbcDriver";
 	String SQL_URL = "jdbc:hsqldb:hsql://localhost/";

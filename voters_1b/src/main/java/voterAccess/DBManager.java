@@ -1,9 +1,9 @@
-package voterInfo;
+package voterAccess;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-import voterInfo.model.UserInfo;
+import voterAccess.model.UserInfo;
 
 public interface DBManager extends CrudRepository<UserInfo, Long>{
 	

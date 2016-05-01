@@ -1,4 +1,4 @@
-package voterInfo.model;
+package voterAccess.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Entity
-public class User{
+public class UserInfo {
 	
 	private static final Logger log = LoggerFactory.getLogger(UserInfo.class);
 
@@ -20,13 +20,13 @@ public class User{
     private String password;
     private String name;
     private String nif;
-    private Long pollingStationCode;
+    private Integer pollingStationCode;
 
-    public User(){
+    public UserInfo(){
     	
     }
     
-    public User(String email, String pass, String name, String nif, Long pollingStationCode) {
+    public UserInfo(String email, String pass, String name, String nif, Integer pollingStationCode) {
     	log.info("Creating user " + email + ". pass: " + pass);
         this.login= email;
         this.password = pass;
@@ -55,7 +55,7 @@ public class User{
 		return nif;
 	}
 
-	public long getPollingStationCode() {
+	public Integer getPollingStationCode() {
 		return pollingStationCode;
 	}
 
@@ -99,35 +99,31 @@ public class User{
 			return false;
 		UserInfo other = (UserInfo) obj;
 		if (login == null) {
-			if (other.getLogin() != null)
+			if (other.login != null)
 				return false;
-		} else if (!login.equals(other.getLogin()))
+		} else if (!login.equals(other.login))
 			return false;
 		if (name == null) {
-			if (other.getName() != null)
+			if (other.name != null)
 				return false;
-		} else if (!name.equals(other.getName()))
+		} else if (!name.equals(other.name))
 			return false;
 		if (nif == null) {
-			if (other.getNif() != null)
+			if (other.nif != null)
 				return false;
-		} else if (!nif.equals(other.getNif()))
+		} else if (!nif.equals(other.nif))
 			return false;
 		if (password == null) {
-			if (other.getPassword() != null)
+			if (other.password != null)
 				return false;
-		} else if (!password.equals(other.getPassword()))
+		} else if (!password.equals(other.password))
 			return false;
 		if (pollingStationCode == null) {
-			if (other.getPollingStationCode() != null)
+			if (other.pollingStationCode != null)
 				return false;
-		} else if (!pollingStationCode.equals(other.getPollingStationCode()))
+		} else if (!pollingStationCode.equals(other.pollingStationCode))
 			return false;
 		return true;
-	}
-
-	public long getId() {
-		return this.id;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package voterInfo.persistence.exception;
+package dBManagement.exception;
 
 /*
  * This is a generic exception used for notifying any infrastructure
