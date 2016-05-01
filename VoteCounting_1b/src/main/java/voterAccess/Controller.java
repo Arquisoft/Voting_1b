@@ -1,4 +1,4 @@
-package recountAccess;
+package voterAccess;
 
 
 
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import dBManagement.UserDao;
+import dBManagement.GetVoter;
 import dBManagement.impl.SimplePersistenceFactory;
-import recountAccess.model.User;
+import voterAccess.model.User;
 
 //controlador para la parte por Consola
 
@@ -19,7 +19,7 @@ public class Controller {
 	
 	//@Autowired
     //UserInfoRepository repository;
-	UserDao repository= new SimplePersistenceFactory().createUserDao();
+	GetVoter repository= new SimplePersistenceFactory().createUserDao();
     
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public User update(@RequestBody User car) {	

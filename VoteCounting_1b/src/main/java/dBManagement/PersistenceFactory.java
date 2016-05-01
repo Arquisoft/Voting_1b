@@ -1,9 +1,9 @@
-package recountAccess.persistence;
+package dBManagement;
 
 public interface PersistenceFactory {
 	
 	UserDao createUserDao();
-	VoteDao createVoteDao();
+	GetVotes createVoteDao();
 
 }
 

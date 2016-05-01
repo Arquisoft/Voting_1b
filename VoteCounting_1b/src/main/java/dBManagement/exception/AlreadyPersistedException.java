@@ -1,4 +1,4 @@
-package recountAccess.persistence.exception;
+package dBManagement.exception;
 
 /**
  * Thrown if an operation needs to save an entity and it already exists 

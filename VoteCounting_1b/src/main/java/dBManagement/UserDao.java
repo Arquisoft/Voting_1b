@@ -1,10 +1,10 @@
-package recountAccess.persistence;
+package dBManagement;
 
 
 import java.util.List;
 
-import recountAccess.persistence.exception.*;
-
+import dBManagement.exception.AlreadyPersistedException;
+import dBManagement.exception.NotPersistedException;
 import recountAccess.model.User;
 
 /**
