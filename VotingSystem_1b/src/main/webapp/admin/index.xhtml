@@ -15,14 +15,14 @@
 				</b:row>
 				<b:row>
 				    <b:column span="4" offset="4">
-				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{validator.email}">
+				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{validate.email}">
 				            <f:facet name="prepend">
 				              <b:icon name="user" />
 				            </f:facet>
 				        </b:inputText>
 				    </b:column>
 				    <b:column span="4" offset="4">
-				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{validator.password}">
+				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{validate.password}">
 				            <f:facet name="prepend">
 				              <b:iconAwesome name="key" />
 				            </f:facet>
@@ -35,7 +35,7 @@
 			         		id="solicitar"
 			         		class="solicitar"
 			         		value="Entrar" 
-			         		action="#{validator.validar()}"
+			         		action="#{validate.validar()}"
 			         		look="primary" 
 			         		style="width:100%" 
 			         	/>

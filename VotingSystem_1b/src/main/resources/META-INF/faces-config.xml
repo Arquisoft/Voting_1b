@@ -4,56 +4,64 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
 
-
 	<managed-bean>
-		<managed-bean-name>voteApplication</managed-bean-name>
+		<managed-bean-name>apply</managed-bean-name>
 		<managed-bean-class>
-			es.uniovi.asw.voter.application.beans.BeanApplication
+			es.uniovi.asw.voteApplication.impl.ApplyForEVoteP
 		</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	
 	<managed-bean>
-		<managed-bean-name>voter</managed-bean-name>
+		<managed-bean-name>electionList</managed-bean-name>
 		<managed-bean-class>
-			es.uniovi.asw.voter.beans.BeanVoter
+			es.uniovi.asw.voterVote.impl.ListElectionP
 		</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
-
-
+	
+	<managed-bean>
+		<managed-bean-name>optionsList</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voterVote.impl.ListVotationOptionsP
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>submitVote</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voterVote.impl.SubmitVoteP
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>validate</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.validator.impl.ValidateP
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>selectVote</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voteInput.impl.SelectVoteP
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
 	<managed-bean>
 		<managed-bean-name>configuration</managed-bean-name>
 		<managed-bean-class>
-			es.uniovi.asw.configuration.beans.BeanConfiguration
-		</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	
-	<managed-bean>
-		<managed-bean-name>cargaVotos</managed-bean-name>
-		<managed-bean-class>
-			 es.uniovi.asw.voter.input.BeanLoadVotes
-		</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	
-	<managed-bean>
-		<managed-bean-name>options</managed-bean-name>
-		<managed-bean-class>
-			es.uniovi.asw.voter.vote.beans.BeanOptions
-		</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	
-	<managed-bean>
-		<managed-bean-name>validator</managed-bean-name>
-		<managed-bean-class>
-			es.uniovi.asw.validator.beans.BeanValidator
+			es.uniovi.asw.configuration.impl.CreateConfigurationP
 		</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 
+<!--  -->
+	
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver
 		</el-resolver>

@@ -1,11 +1,11 @@
 package es.uniovi.asw.util;
 
 
+import static org.junit.Assert.assertTrue;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

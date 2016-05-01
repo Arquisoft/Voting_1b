@@ -9,7 +9,7 @@
 	<ui:define name="cuerpo">
 				<b:container layout="fluid">
 
-				<b:dataTable value="#{voter.list}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
+				<b:dataTable value="#{electionList.list}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
 				  <h:column>
 				    <f:facet name="header">
 				      <h:outputText value="Nombre" />
@@ -31,7 +31,7 @@
 				     	id="gestion"
 				    	rendered="#{option.isOpenForVote()}"
 				    	action="gestion"
-				    	actionListener="#{voter.setConfigurationElection(option)}"
+				    	actionListener="#{electionList.setConfigurationElection(option)}"
 				     	value="gestion" />
 				     
 				  </h:column>
