@@ -1,11 +1,11 @@
-package voterInfo.persistence;
+package dBManagement;
 
 
 import java.util.List;
 
-import voterInfo.model.User;
-import voterInfo.persistence.exception.AlreadyPersistedException;
-import voterInfo.persistence.exception.NotPersistedException;
+import dBManagement.exception.AlreadyPersistedException;
+import dBManagement.exception.NotPersistedException;
+import voterAccess.model.User;
 
 
 
@@ -18,7 +18,7 @@ import voterInfo.persistence.exception.NotPersistedException;
  * @author alb
  *
  */
-public interface UserDao {
+public interface GetVoter {
 
 	List<User> getUsers();
 	void save(User a) throws AlreadyPersistedException;

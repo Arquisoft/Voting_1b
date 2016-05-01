@@ -1,4 +1,4 @@
-package voterInfo.persistence.exception;
+package dBManagement.exception;
 
 /**
  * Thrown if an operation needs to load an entity and does't exist 

@@ -1,14 +1,14 @@
-package voterInfo;
+package voterAccess;
 
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import voterInfo.model.User;
-import voterInfo.persistence.UserDao;
-import voterInfo.persistence.exception.NotPersistedException;
-import voterInfo.persistence.impl.SimplePersistenceFactory;
+import dBManagement.GetVoter;
+import dBManagement.exception.NotPersistedException;
+import dBManagement.impl.SimplePersistenceFactory;
+import voterAccess.model.User;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -25,7 +25,7 @@ public class MainController {
 	//@Autowired
 	//UserInfoRepository repository;
 	
-	UserDao repository = new SimplePersistenceFactory().createUserDao();
+	GetVoter repository = new SimplePersistenceFactory().createUserDao();
  
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String greetingForm(Model model) {
@@ -57,12 +57,12 @@ public class MainController {
     
     @RequestMapping(value="/cambiar-clave", method=RequestMethod.GET)
     public String cambiarClave(Model model) {
-    	model.addAttribute("cambiarClave", new CambiarClave());
+    	model.addAttribute("cambiarClave", new ChangePass());
     	return "cambiar-clave";
     }
     
     @RequestMapping(value="/cambiar-clave", method=RequestMethod.POST)
-    public String cambiarClaveSubmit(@Valid @ModelAttribute CambiarClave cambiarClave, BindingResult br, HttpSession sesion) {
+    public String cambiarClaveSubmit(@Valid @ModelAttribute ChangePass cambiarClave, BindingResult br, HttpSession sesion) {
     	if (br.hasErrors()) {
     		return "cambiar-clave";
     	}

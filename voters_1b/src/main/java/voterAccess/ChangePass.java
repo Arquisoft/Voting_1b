@@ -1,10 +1,10 @@
-package voterInfo;
+package voterAccess;
 
 import javax.validation.constraints.AssertTrue;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class CambiarClave {
+public class ChangePass implements ChangePassword{
 
 	@NotEmpty
 	private String claveAnterior;

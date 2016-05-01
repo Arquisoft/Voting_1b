@@ -1,9 +1,9 @@
-package voterInfo.repositorios;
+package voterAccess.repositorios;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-import voterInfo.model.User;
+import voterAccess.model.User;
 
 
 

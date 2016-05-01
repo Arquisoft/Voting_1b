@@ -17,9 +17,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
-import voterInfo.Application;
-import voterInfo.DBManager;
-import voterInfo.model.UserInfo;
+import voterAccess.Application;
+import voterAccess.DBManager;
+import voterAccess.model.UserInfo;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

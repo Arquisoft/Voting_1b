@@ -1,6 +1,6 @@
-package voterInfo;
+package voterAccess;
 
-import voterInfo.model.UserInfo;
+import voterAccess.model.UserInfo;
 
 public interface GetVoterInfo {
 
