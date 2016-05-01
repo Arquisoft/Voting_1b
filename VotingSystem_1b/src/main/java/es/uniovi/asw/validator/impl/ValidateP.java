@@ -1,4 +1,4 @@
-package es.uniovi.asw.validator.beans;
+package es.uniovi.asw.validator.impl;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -7,7 +7,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
 import es.uniovi.asw.validator.Validate;
-import es.uniovi.asw.validator.bussiness.CheckUserR;
+import es.uniovi.asw.validator.impl.bussiness.CheckUserR;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 
 public class ValidateP implements Validate{

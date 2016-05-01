@@ -15,14 +15,11 @@ import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.model.Vote;
 import es.uniovi.asw.voteApplication.impl.exception.InvalidUserException;
 import es.uniovi.asw.voteInput.SelectVote;
-import es.uniovi.asw.voteInput.impl.bussiness.InsertVoteR;
+import es.uniovi.asw.voteInput.impl.bussiness.LoadVoteR;
 import es.uniovi.asw.voterVote.impl.exception.BusinessException;
-
 
 @Component
 public class SelectVoteP implements SelectVote {
-	
-		
 	
 		private List<Vote> votos;
 		private ConfigurationElection configurationElection;
@@ -47,7 +44,7 @@ public class SelectVoteP implements SelectVote {
 
 		public List<Vote> getVotes(ConfigurationElection configurationElection) {
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-			InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
+			LoadVoteR vvs = ctx.getBean(LoadVoteR.class);
 			this.configurationElection = configurationElection;
 			
 			List<VotableOption> miLista=vvs.getVotableOptions(configurationElection);
@@ -62,7 +59,7 @@ public class SelectVoteP implements SelectVote {
 		public void loadVote(){
 			boolean fail = false;
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-			InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
+			LoadVoteR vvs = ctx.getBean(LoadVoteR.class);
 			
 			try {
 				

@@ -9,7 +9,7 @@
 	<ui:define name="cuerpo">
 				<b:container layout="fluid">
 
-				<b:dataTable value="#{voter.list}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
+				<b:dataTable value="#{electionList.list}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
 				  <h:column>
 				    <f:facet name="header">
 				      <h:outputText value="Nombre" />
@@ -30,7 +30,7 @@
 				    	id="apply"
 				    	rendered="#{option.isOpenForApply()}"
 				    	action="apply"
-				    	actionListener="#{voter.setConfigurationElection(option)}"
+				    	actionListener="#{electionList.setConfigurationElection(option)}"
 				     	value="Ir a realizar la solicitud" />
 				     	<h:outputText rendered="#{!option.isOpenForApply()}" value="No se puede solicitar voto telematico" />
 				  </h:column>
@@ -42,7 +42,7 @@
 				     	id="vote"
 				    	rendered="#{option.isOpenForVote()}"
 				    	action="vote"
-				    	actionListener="#{voter.setConfigurationElection(option)}"
+				    	actionListener="#{electionList.setConfigurationElection(option)}"
 				     	value="Ir a votar" />
 				     	<h:outputText rendered="#{!option.isOpenForVote()}" value="No se puede votar" />
 				  </h:column>

@@ -1,7 +1,6 @@
 package es.uniovi.asw.voterVote.impl;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -21,7 +20,6 @@ import es.uniovi.asw.voterVote.impl.exception.BusinessException;
 public class SubmitVoteP implements SubmitVote {
 	
 	private VotableOption selectOption;
-	private ConfigurationElection configurationElection;
 	private String email;
 	private String password;
 	
@@ -42,18 +40,18 @@ public class SubmitVoteP implements SubmitVote {
 	}
 
 	public void setSelectOption(VotableOption selectOption) {
+		System.out.println(selectOption.getNombre());
 		this.selectOption = selectOption;
 	}
-
-	public List<VotableOption> getVotableOptions(ConfigurationElection configurationElection) {
-		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
-		this.configurationElection = configurationElection;
-		
-		return vvs.getVotableOptions(configurationElection);
+	
+	public void vote(ConfigurationElection configurationElection){
+		vote(configurationElection, selectOption, email, password);
 	}
 	
-	public void vote(){
+	@Override
+	public void vote(ConfigurationElection configurationElection,
+			VotableOption selectOption, String email, String password) {
+		
 		boolean fail = false;
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 		InsertVoteR vvs = ctx.getBean(InsertVoteR.class);
@@ -70,6 +68,7 @@ public class SubmitVoteP implements SubmitVote {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Ha votado correctamente");
 	        FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);
 		}
+		
 	}
 
 }

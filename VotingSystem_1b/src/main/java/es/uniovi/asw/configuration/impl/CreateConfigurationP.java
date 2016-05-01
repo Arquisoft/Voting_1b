@@ -1,4 +1,4 @@
-package es.uniovi.asw.configuration.beans;
+package es.uniovi.asw.configuration.impl;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,15 +12,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import es.uniovi.asw.configuration.business.impl.SimpleVotableOptionService;
-import es.uniovi.asw.dbupdate.impl.InsertConfigurationP;
+import es.uniovi.asw.configuration.impl.business.InsertConfigurationR;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 
 @Component
-public class BeanConfiguration extends ConfigurationElection implements Serializable {
+public class CreateConfigurationP extends ConfigurationElection implements Serializable {
 	
-	public BeanConfiguration() {
+	public CreateConfigurationP() {
 		super();
 	}
 
@@ -45,8 +44,8 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 
 	public String configura() {
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		InsertConfigurationP serviceConfig = ctx.getBean(InsertConfigurationP.class);
-		SimpleVotableOptionService serviceVo = ctx.getBean(SimpleVotableOptionService.class);
+		InsertConfigurationR serviceConfig = ctx.getBean(InsertConfigurationR.class);
+		
 		FacesContext fc = FacesContext.getCurrentInstance();		
 		try {
 			ConfigurationElection conf = new ConfigurationElection(getName(), getDescription(), getApplicationStart(),
@@ -54,7 +53,7 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 					isMultipleVoting());
 			relacionaOpcionesVotoConf(getVotableOptions(), conf);
 			serviceConfig.saveConfiguration(conf);
-			serviceVo.saveVotableOption(getVotableOptions());
+			serviceConfig.saveVotableOption(getVotableOptions());
 			fc.addMessage("laInfo", new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Se ha guardado su configuración."));
 			} catch (Exception e) {
 				fc.addMessage("elError", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Error al guardar la configuración"));

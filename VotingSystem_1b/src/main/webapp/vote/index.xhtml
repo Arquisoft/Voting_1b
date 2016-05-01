@@ -13,14 +13,14 @@
 				
 				<b:row>
 				    <b:column >
-				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{options.email}">
+				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{submitVote.email}">
 				            <f:facet name="prepend">
 				              <b:icon name="user" />
 				            </f:facet>
 				        </b:inputText>
 				    </b:column>
 				    <b:column >
-				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{options.password}">
+				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{submitVote.password}">
 				            <f:facet name="prepend">
 				              <b:iconAwesome name="key" />
 				            </f:facet>
@@ -30,7 +30,7 @@
 				<h:commandButton 
 			         		id="confirmar-voto"
 			         		value="Confirmar voto" 
-			         		actionListener="#{options.vote()}"
+			         		actionListener="#{submitVote.vote(electionList.configurationElection)}"
 			         		look="primary" 
 			         		style="width:100%" 
 			         	/>
@@ -45,7 +45,7 @@
 					<b:message for="all" />
 				</b:row>
 		
-				<b:dataTable value="#{options.getVotableOptions(voter.configurationElection)}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
+				<b:dataTable value="#{optionsList.getList(electionList.configurationElection)}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
 				  <h:column>
 				    <f:facet name="header">
 				      <h:outputText value="Nombre" />
@@ -62,7 +62,7 @@
 				  <f:facet name="header">
 				      <h:outputText value="Votar" />
 				    </f:facet>
-				    <b:button id="votar" value="Votar" onclick="ajax:#{options.setSelectOption(option)};$('.modalPseudoClass').modal();return false;"/>
+				    <b:button id="votar" value="Votar" onclick="ajax:#{submitVote.setSelectOption(option)};$('.modalPseudoClass').modal();return false;"/>
 
 				  </h:column>
 				 
