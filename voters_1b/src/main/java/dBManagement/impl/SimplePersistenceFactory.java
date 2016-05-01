@@ -7,7 +7,7 @@ public class SimplePersistenceFactory implements PersistenceFactory {
 
 	@Override
 	public GetVoter createUserDao() {
-		return new GetVoterImpl();
+		return new GetVoterInfo();
 	}
 
 	

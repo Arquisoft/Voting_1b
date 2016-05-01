@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import dBManagement.UserDao;
-import dBManagement.impl.SimplePersistenceFactory;
 import recountAccess.model.User;
+import recountAccess.persistence.*;
+import recountAccess.persistence.impl.SimplePersistenceFactory;
 
 //controlador para la parte por Consola
 

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,21 +16,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import dBManagement.GetVotes;
-import dBManagement.impl.SimplePersistenceFactory;
 import recountAccess.model.Vote;
+import recountAccess.persistence.UserDao;
+import recountAccess.persistence.VoteDao;
+import recountAccess.persistence.impl.SimplePersistenceFactory;
+import recountAccess.repositorios.VoteRepository;
 
 @Controller
-public class VoteController implements GetResults
-{
+public class VoteController {
 	
+	@Autowired
+	private VoteRepository repository;
 	
 	private List<Object[]> parties;
 	private List<Object[]> votosPartido;
 	private Vote partido= new Vote();
 	private Vote colegio=new Vote();
 	
-	GetVotes repo= new SimplePersistenceFactory().createVoteDao();
+	VoteDao repo= new SimplePersistenceFactory().createVoteDao();
 	
 	@RequestMapping(value="/stadistic", method=RequestMethod.GET)
 	    public String stadistic(Model model) {

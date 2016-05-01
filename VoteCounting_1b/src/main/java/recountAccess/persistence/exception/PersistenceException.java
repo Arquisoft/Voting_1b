@@ -1,4 +1,4 @@
-package dBManagement.exception;
+package recountAccess.persistence.exception;
 
 /*
  * This is a generic exception used for notifying any infrastructure

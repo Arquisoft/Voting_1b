@@ -1,4 +1,4 @@
-package dBManagement.exception;
+package recountAccess.persistence.exception;
 
 /**
  * Thrown if an operation needs to load an entity and does't exist 

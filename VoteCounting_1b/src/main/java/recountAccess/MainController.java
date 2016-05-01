@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import dBManagement.UserDao;
-import dBManagement.exception.NotPersistedException;
-import dBManagement.impl.SimplePersistenceFactory;
 import recountAccess.model.User;
+import recountAccess.persistence.*;
+import recountAccess.persistence.exception.AlreadyPersistedException;
+import recountAccess.persistence.exception.NotPersistedException;
+import recountAccess.persistence.impl.SimplePersistenceFactory;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
