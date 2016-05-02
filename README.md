@@ -39,7 +39,7 @@ Puede descargarse desde [aqui](https://drive.google.com/open?id=0B-BDcJOyciIGekh
 ## Autores
 * [Santiago Martín Agra](https://github.com/SantiMA10)
 * David Sánchez Luis
-* Xurxo García Vázquez
+* [Xurxo García Vázquez](https://github.com/garciavazquez)
 * Adrian Suarez Garcia
 * Ana González Garcia
 * Enol Matilla Blanco
