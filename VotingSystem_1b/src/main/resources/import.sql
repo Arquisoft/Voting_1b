@@ -18,13 +18,13 @@ insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF,ADMIN) VALUES
 insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF,ADMIN) VALUES(2, 1, '12345', 'juan@gmail.com', 'Juan', '65432176T',0);
 insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF,ADMIN) VALUES(3, 1, 'cambiar', 'administracion@juntaElectoral.es', 'Junta', '66666666A',1);
 
-insert into voto VALUES(10,31,NULL,1,1)
-insert into voto VALUES(11,3,NULL,1,2)
-insert into voto VALUES(12,50,NULL,1,3)
-insert into voto VALUES(13,25,NULL,1,4)
+insert into voto VALUES(10,31,NULL,1,1);
+insert into voto VALUES(11,3,NULL,1,2);
+insert into voto VALUES(12,50,NULL,1,3);
+insert into voto VALUES(13,25,NULL,1,4);
 
-insert into voto VALUES(10,7,NULL,2,1)
-insert into voto VALUES(11,10,NULL,2,2)
-insert into voto VALUES(12,5,NULL,2,3)
-insert into voto VALUES(13,12,NULL,2,4)
+insert into voto VALUES(10,7,NULL,2,1);
+insert into voto VALUES(11,10,NULL,2,2);
+insert into voto VALUES(12,5,NULL,2,3);
+insert into voto VALUES(13,12,NULL,2,4);
 
