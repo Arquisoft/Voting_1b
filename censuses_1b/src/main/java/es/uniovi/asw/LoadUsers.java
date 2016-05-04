@@ -10,11 +10,11 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.UnrecognizedOptionException;
 
-import es.uniovi.asw.DBUpdate.DBUpdate;
 import es.uniovi.asw.DBUpdate.Votante;
+import es.uniovi.asw.DBUpdate.impl.InsertP;
 import es.uniovi.asw.parser.ReadCensus;
 import es.uniovi.asw.parser.impl.GeneradorCartasPDF;
-import es.uniovi.asw.parser.impl.ReadCensusExcel;
+import es.uniovi.asw.parser.impl.RCensus;
 
 /**
  * Main application
@@ -50,19 +50,19 @@ public class LoadUsers {
 				String ruta = line.getOptionValue("e");
 				if(line.hasOption("c")){
 					if(line.getOptionValue("c").toLowerCase().equals("pdf")){
-						readExcel = new ReadCensusExcel(ruta, new GeneradorCartasPDF());
+						readExcel = new RCensus(ruta, new GeneradorCartasPDF());
 					}
 					else{
-						readExcel = new ReadCensusExcel(ruta);
+						readExcel = new RCensus(ruta);
 					}
 				}
 				else{
-					readExcel = new ReadCensusExcel(ruta);
+					readExcel = new RCensus(ruta);
 				}
 				List<Votante> votantes=readExcel.loadCenso();
 				if( votantes != null){
 					System.out.println("Censo cargado con exito.");
-					DBUpdate db= new DBUpdate();
+					InsertP db= new InsertP();
 					db.conectar();
 					for(Votante v: votantes){
 						if(!db.exists(v.getNif()))

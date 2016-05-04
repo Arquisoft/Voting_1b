@@ -1,4 +1,4 @@
-package es.uniovi.asw.parser;
+package es.uniovi.asw.parser.impl;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,17 +8,16 @@ import java.util.List;
 import com.itextpdf.text.DocumentException;
 
 import es.uniovi.asw.DBUpdate.Votante;
-import es.uniovi.asw.parser.impl.GeneradorCartasTXT;
-import es.uniovi.asw.parser.impl.HashedGenerator;
-import es.uniovi.asw.reportWriter.Comprobaciones;
-import es.uniovi.asw.reportWriter.ReportWriter;
+import es.uniovi.asw.parser.ReadCensus;
+import es.uniovi.asw.reportWriter.impl.Comprobaciones;
+import es.uniovi.asw.reportWriter.impl.WReportP;
 
 public abstract class AbstractReadCensus implements ReadCensus{
 	
 	protected String ruta;
 	protected GeneradorCartas generadorCartas;
 	protected GeneradorContrasenas generadorContraseñas = new HashedGenerator();
-	protected ReportWriter rW = new ReportWriter();
+	protected WReportP rW = new WReportP();
 
 	public AbstractReadCensus(String ruta) {
 
@@ -54,7 +53,7 @@ public abstract class AbstractReadCensus implements ReadCensus{
 			
 		}
 		else{
-			rW.WriteReport(ruta, "no se encuentra el archivo");
+			rW.writeReport(ruta, "no se encuentra el archivo");
 			return null;
 		}
 		

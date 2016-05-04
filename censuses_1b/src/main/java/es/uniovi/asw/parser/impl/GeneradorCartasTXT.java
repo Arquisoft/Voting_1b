@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 import es.uniovi.asw.DBUpdate.Votante;
-import es.uniovi.asw.parser.GeneradorCartas;
 
 public class GeneradorCartasTXT implements GeneradorCartas {
 	

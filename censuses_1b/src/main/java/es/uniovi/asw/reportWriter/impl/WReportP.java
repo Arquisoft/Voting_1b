@@ -1,4 +1,4 @@
-package es.uniovi.asw.reportWriter;
+package es.uniovi.asw.reportWriter.impl;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -11,11 +11,15 @@ import java.util.Calendar;
 
 
 
-import es.uniovi.asw.DBUpdate.Votante;
 
-public class ReportWriter {
+
+
+import es.uniovi.asw.DBUpdate.Votante;
+import es.uniovi.asw.reportWriter.WriteReport;
+
+public class WReportP implements WriteReport {
 	
-	public void WriteReport(Votante v,String ficheroExcelProcedencia, String razon) throws IOException{
+	public void writeReport(Votante v,String ficheroExcelProcedencia, String razon) throws IOException{
 		if(v==null ||ficheroExcelProcedencia==null || razon==null){
 			throw new IllegalArgumentException("Parametros no pueden ser null");
 		}
@@ -40,7 +44,7 @@ public class ReportWriter {
 		output.close();
 	}
 	//git arreglate por favor
-	public void WriteReport(String ficheroExcelProcedencia,String razon) throws IOException{
+	public void writeReport(String ficheroExcelProcedencia,String razon) throws IOException{
 		if(ficheroExcelProcedencia==null || razon==null){
 			throw new IllegalArgumentException("Parametros no pueden ser null");
 		}
@@ -65,7 +69,7 @@ public class ReportWriter {
 		output.close();
 	}
 	
-	public void WriteReport(String razon) throws IOException{
+	public void writeReport(String razon) throws IOException{
 		if( razon==null){
 			throw new IllegalArgumentException("Parametros no pueden ser null");
 		}

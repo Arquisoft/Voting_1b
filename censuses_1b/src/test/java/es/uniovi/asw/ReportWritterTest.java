@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.uniovi.asw.DBUpdate.Votante;
-import es.uniovi.asw.reportWriter.ReportWriter;
+import es.uniovi.asw.reportWriter.impl.WReportP;
 
 public class ReportWritterTest {
 
@@ -30,90 +30,90 @@ public class ReportWritterTest {
 	@Test(expected = IllegalArgumentException.class) 
 	public void testVotanteNull() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
+		WReportP r = new WReportP();
 		Votante v=null;
-		r.WriteReport(v, "noExiste", "SinRazon");
+		r.writeReport(v, "noExiste", "SinRazon");
 	}
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testFicheroExcelNull() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
+		WReportP r = new WReportP();
 		Votante v=new Votante("NombreFalso", "MailFalso", "dniFalso", "CodigoFalso");
-		r.WriteReport(v, null, "");
+		r.writeReport(v, null, "");
 	}
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testRazonNull() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
+		WReportP r = new WReportP();
 		Votante v=new Votante("NombreFalso", "MailFalso", "dniFalso", "CodigoFalso");
-		r.WriteReport(v, "noExiste", null);
+		r.writeReport(v, "noExiste", null);
 	}
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testRazonVacia() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
+		WReportP r = new WReportP();
 		Votante v=new Votante("NombreFalso", "MailFalso", "dniFalso", "CodigoFalso");
-		r.WriteReport(v, "noExiste", "");
+		r.writeReport(v, "noExiste", "");
 	}
 	@Test(expected = IllegalArgumentException.class) 
 	public void testFicheroVacio() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
+		WReportP r = new WReportP();
 		Votante v=new Votante("NombreFalso", "MailFalso", "dniFalso", "CodigoFalso");
-		r.WriteReport(v, "", "Razon falsa");
+		r.writeReport(v, "", "Razon falsa");
 	}
 
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testFicheroExcelNullSinVotante() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport(null, "razon falsa");
+		WReportP r = new WReportP();
+		r.writeReport(null, "razon falsa");
 	}
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testRazonNullSinVotante() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport("noExiste", null);
+		WReportP r = new WReportP();
+		r.writeReport("noExiste", null);
 	}
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testRazonVaciaSinVotante() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport("noExiste", "");
+		WReportP r = new WReportP();
+		r.writeReport("noExiste", "");
 	}
 	@Test(expected = IllegalArgumentException.class) 
 	public void testFicheroVacioSinVotante() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport("", "Razon falsa");
+		WReportP r = new WReportP();
+		r.writeReport("", "Razon falsa");
 	}
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testRazonVaciaSinVotanteNiFichero() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport("");
+		WReportP r = new WReportP();
+		r.writeReport("");
 	}
 	
 	@Test(expected = IllegalArgumentException.class) 
 	public void testRazonNullSinVotanteNiFichero() throws Exception {
 		//comprobar que no se puede pasar info incorrecta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport(null);
+		WReportP r = new WReportP();
+		r.writeReport(null);
 	}
 	
 	@Test
 	public void testGuardaUnaLineaEnElFichero() throws Exception {
 		
 		//comprobar que guarda una linea con la informacion correcta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport("origen", "RazonFalsa");
+		WReportP r = new WReportP();
+		r.writeReport("origen", "RazonFalsa");
 		
 		BufferedReader lector= new BufferedReader(new FileReader("report.log"));
 		String linea= lector.readLine();
@@ -126,9 +126,9 @@ public class ReportWritterTest {
 	@Test
 	public void testGuardaDosLineaEnElFichero() throws Exception {
 		//comprobar que guarda varios reportes en lineas diferentes con la informacion correcta
-		ReportWriter r = new ReportWriter();
-		r.WriteReport("origen", "RazonFalsa");
-		r.WriteReport("origenDiferente", "Razon2");
+		WReportP r = new WReportP();
+		r.writeReport("origen", "RazonFalsa");
+		r.writeReport("origenDiferente", "Razon2");
 		BufferedReader lector= new BufferedReader(new FileReader("report.log"));
 		String linea= lector.readLine();
 		assertTrue(linea.contains("RazonFalsa"));
@@ -142,11 +142,11 @@ public class ReportWritterTest {
 	@Test
 	public void testLlamandoALosDosMetodosRepetidasVeces() throws Exception {
 		//comprobar que se pueden llamar a ambos metodos 
-		ReportWriter r = new ReportWriter();
-		r.WriteReport("origen", "RazonFalsa");
-		r.WriteReport("origenDiferente", "Razon2");
+		WReportP r = new WReportP();
+		r.writeReport("origen", "RazonFalsa");
+		r.writeReport("origenDiferente", "Razon2");
 		Votante v=new Votante("NombreFalso", "MailFalso", "dniFalso", "CodigoFalso");
-		r.WriteReport(v, "ahoraConVotante", "3 lineas");
+		r.writeReport(v, "ahoraConVotante", "3 lineas");
 		BufferedReader lector= new BufferedReader(new FileReader("report.log"));
 		String linea= lector.readLine();
 		assertTrue(linea.contains("RazonFalsa"));

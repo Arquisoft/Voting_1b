@@ -1,4 +1,4 @@
-package es.uniovi.asw.DBUpdate;
+package es.uniovi.asw.DBUpdate.impl;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,13 +7,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import es.uniovi.asw.reportWriter.ReportWriter;
+import es.uniovi.asw.DBUpdate.Insert;
+import es.uniovi.asw.DBUpdate.Votante;
+import es.uniovi.asw.reportWriter.impl.WReportP;
 
 /**
  * Clase para interactuar con la base de datosaaa
  *
  */
-public class DBUpdate {
+public class InsertP implements Insert {
 	
 	private static String DRIVER_HSQLDB = "org.hsqldb.jdbcDriver";
 	private static String URL_HSQLDB = "jdbc:hsqldb:hsql://localhost";
@@ -91,10 +93,10 @@ public class DBUpdate {
 			insercion.setBoolean(6, false);
 			insercion.executeUpdate();			
 		} catch (SQLException e) {
-			ReportWriter r = new ReportWriter();
+			WReportP r = new WReportP();
 			if(e.getSQLState().equals("08001")){
 				try {
-					r.WriteReport("No se puede conectar a la base de datos.");
+					r.writeReport("No se puede conectar a la base de datos.");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -102,7 +104,7 @@ public class DBUpdate {
 			}
 			else if(e.getSQLState().equals("23505")){
 				try {
-					r.WriteReport("Ya existe el registro en la base de datos.");
+					r.writeReport("Ya existe el registro en la base de datos.");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -111,7 +113,7 @@ public class DBUpdate {
 			else
 			{
 				try {
-					r.WriteReport("Error desconocido en la BD "+e.getMessage());
+					r.writeReport("Error desconocido en la BD "+e.getMessage());
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -123,9 +125,9 @@ public class DBUpdate {
 			try {
 				insercion.close();
 			} catch (SQLException e) {
-				ReportWriter rw = new ReportWriter();
+				WReportP rw = new WReportP();
 				try {
-					rw.WriteReport("Error desconocido en la BD "+e.getMessage());
+					rw.writeReport("Error desconocido en la BD "+e.getMessage());
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

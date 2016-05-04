@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import es.uniovi.asw.DBUpdate.Votante;
 import es.uniovi.asw.parser.impl.HashedGenerator;
-import es.uniovi.asw.reportWriter.Comprobaciones;
+import es.uniovi.asw.reportWriter.impl.Comprobaciones;
 
 public class ComprobacionesTest {
 

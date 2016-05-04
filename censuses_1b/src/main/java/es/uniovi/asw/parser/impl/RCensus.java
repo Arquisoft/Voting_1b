@@ -14,16 +14,14 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import es.uniovi.asw.DBUpdate.Votante;
-import es.uniovi.asw.parser.AbstractReadCensus;
-import es.uniovi.asw.parser.GeneradorCartas;
 
-public class ReadCensusExcel extends AbstractReadCensus {
+public class RCensus extends AbstractReadCensus {
 
-	public ReadCensusExcel(String ruta) {
+	public RCensus(String ruta) {
 		super(ruta);
 	}
 	
-	public ReadCensusExcel(String ruta, GeneradorCartas generadorCartas) {
+	public RCensus(String ruta, GeneradorCartas generadorCartas) {
 		super(ruta, generadorCartas);
 	}
 
@@ -67,7 +65,7 @@ public class ReadCensusExcel extends AbstractReadCensus {
 					votantes.add(v);
 				}
 				else{
-					rW.WriteReport(ruta, "[Fila " + fila + "] Faltan datos del usuario.");
+					rW.writeReport(ruta, "[Fila " + fila + "] Faltan datos del usuario.");
 				}
 					
 				fila++;
@@ -75,7 +73,7 @@ public class ReadCensusExcel extends AbstractReadCensus {
 			}
 			
 		} catch (EncryptedDocumentException | InvalidFormatException e) {
-			rW.WriteReport(ruta, "Ha ocurrido un problema al leer el fichero excel.");
+			rW.writeReport(ruta, "Ha ocurrido un problema al leer el fichero excel.");
 		} 
 		
 		return votantes;

@@ -1,4 +1,4 @@
-package es.uniovi.asw.parser;
+package es.uniovi.asw.parser.impl;
 
 import es.uniovi.asw.DBUpdate.Votante;
 

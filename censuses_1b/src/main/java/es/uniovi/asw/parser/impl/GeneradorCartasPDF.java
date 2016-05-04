@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import es.uniovi.asw.DBUpdate.Votante;
-import es.uniovi.asw.parser.GeneradorCartas;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;

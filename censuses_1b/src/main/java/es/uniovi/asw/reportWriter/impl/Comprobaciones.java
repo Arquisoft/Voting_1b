@@ -1,4 +1,4 @@
-package es.uniovi.asw.reportWriter;
+package es.uniovi.asw.reportWriter.impl;
 
 import es.uniovi.asw.DBUpdate.Votante;
 

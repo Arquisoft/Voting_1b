@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-import es.uniovi.asw.DBUpdate.DBUpdate;
 import es.uniovi.asw.DBUpdate.Votante;
+import es.uniovi.asw.DBUpdate.impl.InsertP;
 
 import java.io.*;
 
@@ -15,7 +15,7 @@ import java.io.*;
  */
 public class DBTest {
 	
-	private static DBUpdate db = new DBUpdate();
+	private static InsertP db = new InsertP();
 	
 	@BeforeClass
 	public static void beforeClass() {

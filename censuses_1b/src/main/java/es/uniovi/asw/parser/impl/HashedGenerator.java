@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 
 import es.uniovi.asw.DBUpdate.Votante;
-import es.uniovi.asw.parser.GeneradorContrasenas;
 
 
 public class HashedGenerator implements GeneradorContrasenas {

@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import es.uniovi.asw.DBUpdate.Votante;
 import es.uniovi.asw.parser.ReadCensus;
-import es.uniovi.asw.parser.impl.ReadCensusExcel;
+import es.uniovi.asw.parser.impl.RCensus;
 
 public class ReadCensusExcelTest {
 	
@@ -40,7 +40,7 @@ public class ReadCensusExcelTest {
 
 	@Test
 	public void testExcelModernoNumeroVotantes() throws Exception {
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_correcto.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_correcto.xlsx");
 		List<Votante> votantes = readCensus.loadCenso(); 
 		
 		//Comprobamos número de votantes
@@ -49,7 +49,7 @@ public class ReadCensusExcelTest {
 	
 	@Test
 	public void testExcelAntiguoNumeroVotantes() throws Exception {
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_correcto.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_correcto.xlsx");
 		List<Votante> votantes = readCensus.loadCenso(); 
 		
 		//Comprobamos número de votantes
@@ -58,7 +58,7 @@ public class ReadCensusExcelTest {
 	
 	@Test
 	public void testExcelModernoDatosCorrectos() throws Exception {
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_correcto.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_correcto.xlsx");
 		List<Votante> votantes = readCensus.loadCenso(); 
 		
 		//Comprobamos los datos del votante 1
@@ -85,7 +85,7 @@ public class ReadCensusExcelTest {
 	
 	@Test
 	public void testExcelAntiguoDatosCorrectos() throws Exception {
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_correcto.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_correcto.xlsx");
 		List<Votante> votantes = readCensus.loadCenso(); 
 		
 		//Comprobamos los datos del votante 1
@@ -114,7 +114,7 @@ public class ReadCensusExcelTest {
 	public void testExcelVelocidad() throws Exception{
 		
 		long inicio = System.currentTimeMillis();
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_velocidad.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_velocidad.xlsx");
 		readCensus.loadCenso(); 
 		long fin = System.currentTimeMillis();
 		
@@ -125,7 +125,7 @@ public class ReadCensusExcelTest {
 	@Test
 	public void testExcelCensoIncompleto() throws Exception{
 		
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_incorrecto.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_incorrecto.xlsx");
 		List<Votante> votantes = readCensus.loadCenso(); 
 		
 		for(Votante votante : votantes){
@@ -141,7 +141,7 @@ public class ReadCensusExcelTest {
 		
 		assertTrue(!new File("report.log").exists());
 		
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_encriptado.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_encriptado.xlsx");
 		readCensus.loadCenso(); 
 		
 		assertTrue(new File("report.log").exists());
@@ -151,7 +151,7 @@ public class ReadCensusExcelTest {
 	@Test
 	public void testExcelVacio() throws Exception{
 				
-		ReadCensus readCensus = new ReadCensusExcel("src/test/resources/censo_vacio.xlsx");
+		ReadCensus readCensus = new RCensus("src/test/resources/censo_vacio.xlsx");
 		List<Votante> votantes = readCensus.loadCenso(); 
 		
 		assertEquals(votantes.size(), 0);
