@@ -15,7 +15,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import es.uniovi.asw.DBUpdate.Votante;
 
-public class RCensus extends AbstractReadCensus {
+public class RCensus extends InsertR {
 
 	public RCensus(String ruta) {
 		super(ruta);

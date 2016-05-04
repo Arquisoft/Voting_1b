@@ -12,20 +12,20 @@ import es.uniovi.asw.parser.ReadCensus;
 import es.uniovi.asw.reportWriter.impl.Comprobaciones;
 import es.uniovi.asw.reportWriter.impl.WReportP;
 
-public abstract class AbstractReadCensus implements ReadCensus{
+public abstract class InsertR implements ReadCensus{
 	
 	protected String ruta;
 	protected GeneradorCartas generadorCartas;
 	protected GeneradorContrasenas generadorContraseñas = new HashedGenerator();
 	protected WReportP rW = new WReportP();
 
-	public AbstractReadCensus(String ruta) {
+	public InsertR(String ruta) {
 
 		this(ruta, new GeneradorCartasTXT());
 
 	}
 	
-	public AbstractReadCensus(String ruta, GeneradorCartas generadorCartas) {
+	public InsertR(String ruta, GeneradorCartas generadorCartas) {
 		
 		this.ruta = ruta;
 		this.generadorCartas = generadorCartas;
