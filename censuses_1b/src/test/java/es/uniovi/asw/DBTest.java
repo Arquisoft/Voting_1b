@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-import es.uniovi.asw.BD.DBUpdate;
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.DBUpdate;
+import es.uniovi.asw.DBUpdate.Votante;
 
 import java.io.*;
 

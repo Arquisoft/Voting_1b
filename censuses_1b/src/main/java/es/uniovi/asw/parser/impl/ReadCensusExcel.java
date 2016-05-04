@@ -13,7 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.Votante;
 import es.uniovi.asw.parser.AbstractReadCensus;
 import es.uniovi.asw.parser.GeneradorCartas;
 

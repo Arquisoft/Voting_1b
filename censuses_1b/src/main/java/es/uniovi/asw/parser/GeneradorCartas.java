@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 import com.itextpdf.text.DocumentException;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.Votante;
 
 public interface GeneradorCartas {
 

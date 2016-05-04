@@ -1,4 +1,4 @@
-package es.uniovi.asw.logica;
+package es.uniovi.asw.DBUpdate;
 
 
 public class Votante {

@@ -1,4 +1,4 @@
-package es.uniovi.asw.reports;
+package es.uniovi.asw.reportWriter;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -10,7 +10,8 @@ import java.util.Calendar;
 
 
 
-import es.uniovi.asw.logica.Votante;
+
+import es.uniovi.asw.DBUpdate.Votante;
 
 public class ReportWriter {
 	

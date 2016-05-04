@@ -2,7 +2,7 @@ package es.uniovi.asw.parser;
 
 import java.util.List;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.Votante;
 
 public interface ReadCensus {
 

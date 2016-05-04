@@ -1,4 +1,4 @@
-package es.uniovi.asw.BD;
+package es.uniovi.asw.DBUpdate;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,8 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.reports.ReportWriter;
+import es.uniovi.asw.reportWriter.ReportWriter;
 
 /**
  * Clase para interactuar con la base de datosaaa

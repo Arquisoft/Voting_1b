@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.Votante;
 import es.uniovi.asw.parser.ReadCensus;
 import es.uniovi.asw.parser.impl.ReadCensusExcel;
 

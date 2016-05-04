@@ -1,6 +1,6 @@
-package es.uniovi.asw.util;
+package es.uniovi.asw.reportWriter;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.Votante;
 
 public class Comprobaciones {
 	

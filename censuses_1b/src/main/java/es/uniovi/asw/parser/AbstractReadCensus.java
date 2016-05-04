@@ -7,11 +7,11 @@ import java.util.List;
 
 import com.itextpdf.text.DocumentException;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.Votante;
 import es.uniovi.asw.parser.impl.GeneradorCartasTXT;
 import es.uniovi.asw.parser.impl.HashedGenerator;
-import es.uniovi.asw.reports.ReportWriter;
-import es.uniovi.asw.util.Comprobaciones;
+import es.uniovi.asw.reportWriter.Comprobaciones;
+import es.uniovi.asw.reportWriter.ReportWriter;
 
 public abstract class AbstractReadCensus implements ReadCensus{
 	

@@ -10,8 +10,8 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.UnrecognizedOptionException;
 
-import es.uniovi.asw.BD.DBUpdate;
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.DBUpdate.DBUpdate;
+import es.uniovi.asw.DBUpdate.Votante;
 import es.uniovi.asw.parser.ReadCensus;
 import es.uniovi.asw.parser.impl.GeneradorCartasPDF;
 import es.uniovi.asw.parser.impl.ReadCensusExcel;

@@ -11,8 +11,8 @@ import java.io.Writer;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.reports.ReportWriter;
+import es.uniovi.asw.DBUpdate.Votante;
+import es.uniovi.asw.reportWriter.ReportWriter;
 
 public class ReportWritterTest {
 
