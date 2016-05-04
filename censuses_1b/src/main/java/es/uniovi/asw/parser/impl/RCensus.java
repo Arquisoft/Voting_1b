@@ -55,7 +55,7 @@ public class RCensus extends InsertR {
 					Cell cell = (Cell) cells.next();
 					datosVotante.add(cell.toString());
 				}
-				
+				//magia autowiured
 				if(datosVotante.size() == 4){
 					Votante v = new Votante(datosVotante.get(0),
 							datosVotante.get(1),
