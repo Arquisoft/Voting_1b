@@ -42,6 +42,8 @@ Para un despligue local se necesita la **[base de datos HSQLDB](#base-de-datos-h
 * **Visualizar el numero de votos por colegio electoral**
 * **Visualizar los resultados de un partido en los distintos colegios**
 
+Para un despligue local se necesita la **[base de datos HSQLDB](#base-de-datos-hsqldb)**, ejecutar el comando **mvn spring-boot:run** y entrar en la dirección [http://localhost:8081](http://localhost:8081) del navegador.
+
 ## Base de datos HSQLDB
 Puede descargarse desde [aqui](https://drive.google.com/open?id=0B-BDcJOyciIGekhBZDBIX20wZ1E). Se ejecuta con el archivo **startup.bat** y tambien contiene un gestor que se contecta automaticamente y se puede lanzar ejecutando **RunManagerSwing.bat**
 
