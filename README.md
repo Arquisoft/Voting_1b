@@ -22,6 +22,10 @@ Los formatos de salida de las cartas:
 Para utilizarlo hay que ejecutar, primero necesita se necesita la **[base de datos HSQLDB](#base-de-datos-hsqldb)**, y luego **java -jar censuses1b-0.0.1.jar -e "ruta al fichero excel"** 
  
 ## Voters
+**Voters** es un sistema web que permite:
+* **Acceder paraconsultar el colegio electoral donde el usuario debe votar.**
+* **Cambiar la contraseña de acceso emitida aleatoriamente del usuario.**
+
 
 ## VotingSystem
 **VotingSystem** es un sistema de votación telemática que permite:
@@ -32,6 +36,11 @@ Para utilizarlo hay que ejecutar, primero necesita se necesita la **[base de dat
 Para un despligue local se necesita la **[base de datos HSQLDB](#base-de-datos-hsqldb)**, ejecutar el comando **mvn spring-boot:run** y entrar en la dirección [http://localhost:8080](http://localhost:8080) del navegador.
 
 ## VoteCounting
+**VoteCounting** es un sistema web que permite:
+* **Visualizar el resultado de las votaciones hechas hasta el momento.**
+* **Visualizar los resultados por colegio electoral**
+* **Visualizar el numero de votos por colegio electoral**
+* **Visualizar los resultados de un partido en los distintos colegios**
 
 ## Base de datos HSQLDB
 Puede descargarse desde [aqui](https://drive.google.com/open?id=0B-BDcJOyciIGekhBZDBIX20wZ1E). Se ejecuta con el archivo **startup.bat** y tambien contiene un gestor que se contecta automaticamente y se puede lanzar ejecutando **RunManagerSwing.bat**
@@ -41,7 +50,7 @@ Puede descargarse desde [aqui](https://drive.google.com/open?id=0B-BDcJOyciIGekh
 * David Sánchez Luis
 * [Xurxo García Vázquez](https://github.com/garciavazquez)
 * Adrian Suarez Garcia
-* Ana González Garcia
+* [Ana González Garcia](https://github.com/AninaGlez)
 * Enol Matilla Blanco
 
 
