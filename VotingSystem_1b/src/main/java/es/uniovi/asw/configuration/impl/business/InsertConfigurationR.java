@@ -3,6 +3,7 @@ package es.uniovi.asw.configuration.impl.business;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.dbupdate.exception.PersistenceException;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
@@ -10,6 +11,7 @@ import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.repositories.ConfigurationDAO;
 import es.uniovi.asw.dbupdate.repositories.VotableOptionDAO;
 
+@Component
 public class InsertConfigurationR {
 	
 	@Autowired
